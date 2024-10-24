@@ -1,0 +1,621 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url(https://unpkg.com/swiper/swiper-bundle.min.css);
+
+:root {
+    --rspacing: 0.03fr;
+    --cspacing: 1fr;
+    --imgBorder: 10px;
+  }
+  
+body {
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: var(--cspacing) repeat(8, 1fr) var(--cspacing); 
+    grid-template-rows: 0.1fr var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(2, 0.35fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(1, 0.05fr);
+    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2vw;
+}
+
+.logo img {
+    max-width: 50%; /* Image will not exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+h1 {
+    font-family: 'Playfair Display';
+    color: #1c613e;
+    font-weight: 100;
+    font-size: 3vw;
+}
+
+h2 {
+    font-family: 'Playfair Display';
+    color: #832414;
+    font-weight: 100;
+    font-size: 2vw;
+
+}
+
+h3 {
+    font-family: 'Playfair Display';
+    color: #832414;
+    font-weight: 100;
+    font-size: 2vw;
+
+}
+
+h4 {
+    color: #832414;
+    font-family: "Lato", sans-serif;
+
+}
+
+.scroll-button , .translate-button{
+    background-color: #ffffff;
+    color: #832414;
+    border: none;
+    font-family: "Lato", sans-serif;
+    padding: 1vw;
+    font-size: 1.2vw;
+    font-weight: 300;
+
+}
+
+.heading {
+    grid-area: 1 / 2 / 2 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(1, 1fr);
+
+}
+
+.heading .logo {
+    grid-area: 1 / 1 / 2 / 4;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.heading .sections {
+    text-align: right;
+    grid-area: 1 / 4 / 2 / 10;
+}
+
+.a1 {
+    grid-area: 3 / 2 / 6 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(5, 1fr);
+
+}
+
+.a1 .text-area{
+    grid-area: 1 / 1 / 6 / 5;
+    display: grid;
+    grid-template-columns: repeat(3. 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.a1 .text-area .main-title{
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+.a1 .text-area .subheader{
+    grid-area: 2 / 1 / 3 / 4;
+    
+}
+.a1 .text-area .text{
+    grid-area: 3 / 1 / 6 / 2;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.a1 .image {
+    grid-area: 1 / 5 / 6 / 10;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.a3 {
+    grid-area: 7 / 2 / 9 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.a3 .title {
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+.a3 .showcase {
+    grid-area: 2 / 1 / 9 / 10;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.a3 .showcase .section1 {
+    grid-area: 1 / 1 / 8/ 4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin: 15px;
+}
+
+.a3 .showcase .section1 .image {
+    grid-area: 1 / 1 / 4 / 5;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.a3 .showcase .section1 .text-container {
+    grid-area: 4/ 1 / 5 / 3;
+}
+
+.a3 .showcase .section2 {
+    grid-area: 1 / 4 / 8/ 7;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin: 15px;
+    
+}
+
+.a3 .showcase .section2 .image {
+    grid-area: 1 / 1 / 4 / 5;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+
+}
+
+.a3 .showcase .section2 .text-container {
+    grid-area: 4/ 1 / 5 / 3;
+}
+
+
+.a3 .showcase .section3 {
+    grid-area: 1 / 7 / 8/ 10;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin: 15px;
+    
+}
+
+.a3 .showcase .section3 .image {
+    grid-area: 1 / 1 / 4 / 5;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+}
+
+.a3 .showcase .section3 .text-container {
+    grid-area: 4/ 1 / 5 / 3;
+}
+
+
+
+.a4 {
+    grid-area: 10 / 2 / 13 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+}
+.a4 .image {
+    grid-area: 1 / 1 / 4 / 5;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.a4 .text-area {
+    grid-area: 1 / 5 / 4 / 9;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.a4 .text-area .main-title {
+    grid-area: 1 / 3 / 2 / 6;
+}
+
+.a4 .text-area .subtext {
+    grid-area: 2 / 3 / 4 / 6;
+}
+
+.a4 .text-area .contact-button {
+    grid-area: 4 / 3 / 4 / 6;
+    text-align: center;
+}
+
+.a5 {
+    grid-area: 14 / 2 / 17 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.a5 .image {
+    grid-area: 1 / 5 / 5/ 10;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.a5 .text-area{
+    grid-area: 1 / 1 / 5 / 5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.a5 .text-area .main-title {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.a5 .text-area .list-amenities {
+    grid-area: 2 / 1 / 5 / 4;
+}
+.a6 {
+    grid-area: 18 / 2 / 21 / 10;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.a6 .text-area {
+    grid-area: 1 / 6 / 6 / 10;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.a6 .text-area .main-title {
+    grid-area: 1 / 2 / 2 / 4;
+    justify-content: left;
+
+}
+.a6 .text-area .contact-form {
+    grid-area: 2 / 2 / 5/ 4;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    justify-content: left;
+}
+
+
+
+.a6 .image {
+    grid-area: 1 / 1 / 6 / 5;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.footer {
+    grid-area: 22 / 1 / 23 / 11;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    grid-template-rows: repeat(1, 1fr);
+}
+
+button:hover {
+    background-color: #ead9a7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.swiper-container-main {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+
+.swiper-container1 {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+
+.swiper-container2 {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+
+.swiper-container3 {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+.swiper-container-event {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+.swiper-container-amenities {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+}
+.swiper-container-cu {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--imgBorder);
+    
+}
+
+
+.swiper-slide {
+
+  max-width: 100%; /* Prevents the slides from exceeding the container width */
+  max-height: 100%; /* Prevents the slides from exceeding the container height */
+
+}
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* Crops from the bottom-right */
+    border-radius: var(--imgBorder);
+}
+
+
+
+
+.swiper-button-prev, .swiper-button-next {
+    width: 30px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    background: rgb(255, 255, 255); /* Semi-transparent background */
+    color: rgb(0, 0, 0); /* Button color */
+    border-radius: 50%; /* Make it circular */
+
+    justify-content: center; /* Center the arrow */
+    align-items: center; /* Center the arrow */
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+}
+  
+  
+.swiper-pagination {
+    z-index: 300; /* Ensure it stays above the slides */
+}
+  
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 254, 254, 0.5); /* Semi-transparent bullets */
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.5; /* Make bullets less visible */
+    transition: opacity 0.3s ease;
+    visibility: hidden;
+
+}
+  
+.swiper-pagination-bullet-active {
+    opacity: 1; /* Highlight the active bullet */
+    background: #ffffff; /* Change color for active bullet */
+}
+
+  /* Adjust the icon size inside the arrow buttons */
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 15px !important; /* Increase or decrease this value to adjust arrow size */
+}
+
+  /* Customize the Previous Arrow */
+.swiper-button-prev {
+    left: 20px;
+}
+  
+  /* Customize the Next Arrow */
+.swiper-button-next {
+    right: 20px;
+}
+
+.swiper-container-main:hover .swiper-button-next, 
+.swiper-container-main:hover .swiper-button-prev, 
+.swiper-container-main:hover .swiper-pagination-bullet{
+      opacity: 1;
+      visibility: visible;
+}
+
+.swiper-container1:hover .swiper-button-next, 
+.swiper-container1:hover .swiper-button-prev, 
+.swiper-container1:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+
+.swiper-container2:hover .swiper-button-next, 
+.swiper-container2:hover .swiper-button-prev, 
+.swiper-container2:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+.swiper-container3:hover .swiper-button-next, 
+.swiper-container3:hover .swiper-button-prev, 
+.swiper-container3:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+
+.swiper-container-event:hover .swiper-button-next, 
+.swiper-container-event:hover .swiper-button-prev, 
+.swiper-container-event:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+
+.swiper-container-amenities:hover .swiper-button-next, 
+.swiper-container-amenities:hover .swiper-button-prev, 
+.swiper-container-amenities:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+
+.swiper-container-cu:hover .swiper-button-next, 
+.swiper-container-cu:hover .swiper-button-prev, 
+.swiper-container-cu:hover .swiper-pagination-bullet {
+      opacity: 1;
+      visibility: visible;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+.input-label {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+.message {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+input:focus + .input-label, input:not(:placeholder-shown) + .input-label {
+    top: 3px;
+    font-size: 7px;
+}
+textarea:focus + .message, textarea:not(:placeholder-shown) + .message {
+    top: 3px;
+    font-size: 7px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 20px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+input::placeholder {
+    color: transparent;
+}
+textarea::placeholder {
+    color: transparent;
+}
+.contact-us-button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to bottom, #f1d77b, #C9A114);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-us-button:hover{
+    background: linear-gradient(to bottom, #C9A114, #E7C038);
+}
+/* Add these rules to your existing CSS */
+.input-container.error input,
+.input-container.error textarea {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-container.error .error-message {
+    display: block;
+}
+
+.contact-us-button.submitted {
+    background: linear-gradient(to bottom, #309026, #1c613e);
+}
+.contact-us-button.submitted:hover {
+    background: linear-gradient(to bottom,  #1c613e, #309026);
+}
+.contact-us-button.animating {
+    animation: pulse 1s;
+}
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+footer {
+    background-color: #832414;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+.footer-container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.social-media {
+list-style-type: none;
+padding: 0;
+}
+
+.social-media li {
+display: inline;
+margin: 0 10px;
+}
+
+.social-media a img {
+width: 30px;
+height: 30px;
+}
+
+footer p {
+margin-top: 15px;
+font-size: 14px;
+}
+.custom-link {
+    color: inherit; /* Inherits the color of the parent element, like the h3 */
+    text-decoration: none; /* Removes underline */
+}
+
+.custom-link:hover {
+    color: inherit; /* Keeps the color unchanged on hover */
+}
+.custom-link:visited {
+    color: inherit; /* Keeps the color unchanged after being clicked */
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="heading">
+        <div class="logo">
+            <img src="../../images/logo.jpg" alt="Description of the image" class="logo">
+        </div>
+        <div class="sections">
+            <tr>
+                <a href="../../index.html#a1" class="custom-link">
+                    <button class="scroll-button">Home</button>
+                </a>
+                <a href="../../index.html#a3" class="custom-link">
+                    <button class="scroll-button">Rooms</button>
+                </a>
+                <a href="../../index.html#a4" class="custom-link">
+                    <button class="scroll-button">Events</button>
+                </a>
+                <a href="../../index.html#a5" class="custom-link">
+                    <button class="scroll-button">Amenities</button>
+                </a>
+                <a href="../../index.html#a6" class="custom-link">
+                    <button class="scroll-button">Contact Us</button>
+                </a>
+                <button class="translate-button">En/Amh</button>
+            </tr>
+        </div>
+    </div>
+    <div class="gallery">
+        <img class="image1" src="../../images/single-room.jpg"></img> 
+        <img class="image2" src="../../images/single-room1.jpg"></img> 
+        <img class="image3" src="../../images/hall.jpg"></img> 
+        <img class="image4" src="../../images/lobby1.jpg"></img> 
+        <img class="image5" src="../../images/front3.jpg"></img> 
+    </div>
+    <div class="room-amenities">
+        <div class="title-container">
+            <div class="title" id="room-type"><h1>Standard Room</h1></div>
+            <div class="subheader"><h3>2 guests, 1bed, 1bath</h3></div>    
+        </div>
+        <div class="amenities">
+            <ul>
+                <li>Large bed with premium linens</li>
+                <li>Desk and ergonomic chair</li>
+                <li>Private balcony with scenic views</li>
+                <li>Free high-speed Wi-Fi</li>
+                <li>Mini-fridge and coffee/tea maker</li>
+                <li>Ensuite bathroom with luxury toiletries</li>
+                <li>Air conditioning and adjustable lighting</li>
+                <li>In-room safe and electronic key card access</li>
+                <li>Daily housekeeping service</li>
+              </ul>              
+        </div>
+    </div>
+    <div class="reserve-form">
+        <div class="container">
+            <h2>$ 70 USD night</h2>
+            <div class="check-info">
+                <div>
+                    <div class="check-date">
+                        <input type="text" id="check-in" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" value="2024-03-11">
+                        <label for="check-in" class="input-label">CHECK-IN</label>
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                    <div class="check-date">
+                        <input type="text" id="check-out" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" value="2024-03-11">
+                        <label for="check-out" class="input-label">CHECK-OUT</label>
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                </div>
+                <div class="select-container">
+                    <select id="guests"> GUESTS
+                        <option value="X">Guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                    <div class="error-message" id="select-error"></div>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="name" placeholder=" ">
+                <label for="name" class="input-label">NAME</label>
+                <div class="error-message" id="name-error"></div>
+            </div>
+            <div class="input-container">
+                <input type="email" id="email" placeholder=" ">
+                <label for="email" class="input-label">EMAIL</label>
+                <div class="error-message" id="name-error"></div>
+            </div>
+            <div class="input-container">
+                <input type="tel" id="phone" placeholder=" ">
+                <label for="phone" class="input-label">PHONE NUMBER</label>
+                <div class="error-message" id="name-error"></div>
+            </div>
+            <button id="submit-btn" class="reserve-button" >Reserve</button>
+        </div>
+    </div>
+    <div class="footer">
+        <footer>
+            <div class="footer-container">
+              <p>Follow us on:</p>
+              <ul class="social-media">
+                <li><a href="https://www.facebook.com/profile.php?id=61564141656155&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://g.co/kgs/om6qK2E" target="_blank"><i class="fab fa-google"></i></a></li>
+                <li><a href="https://www.instagram.com/turacoaddishotel?igsh=MTllaGI1NGZ4cXF5dw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              </ul>
+              <p>&copy; 2024 Turaco Addis. All Rights Reserved.</p>
+            </div>
+          </footer>          
+    </div>
+    <script src="../script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+</body>
