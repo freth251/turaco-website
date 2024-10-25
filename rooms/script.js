@@ -164,7 +164,7 @@ submitButton.addEventListener('click', function(e) {
             roomType: roomType.textContent,
         }
 
-        fetch('http://localhost:8080/api/reserve', {
+        fetch('https://www.turacoaddis.com/api/reserve', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
