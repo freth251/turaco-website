@@ -54,9 +54,9 @@ h4 {
     color: #832414;
     border: none;
     font-family: "Lato", sans-serif;
-    padding: 25px;
-    font-size: 1.25vw;
-
+    padding: 1vw;
+    font-size: 1.2vw;
+    font-weight: 300;
 
 }
 .scroll-button:hover {

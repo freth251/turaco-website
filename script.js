@@ -191,7 +191,7 @@ submitButton.addEventListener('click', function(e) {
             message: messageInput.value
         }
 
-        fetch('http://localhost:8080/api/contact', {
+        fetch('https://www.turacoaddis.com/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

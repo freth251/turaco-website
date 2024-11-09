@@ -11,7 +11,7 @@ body {
     background-color: #ffffff;
     display: grid;
     grid-template-columns: var(--cspacing) repeat(8, 1fr) var(--cspacing); 
-    grid-template-rows: 0.1fr var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(2, 0.35fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(1, 0.05fr);
+    grid-template-rows: 0.1fr var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(2, 0.5fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.20fr) var(--rspacing) repeat(1, 0.05fr);
     font-family: "Lato", sans-serif;
     font-family: "Lato", sans-serif;
     font-weight: 300;
@@ -144,32 +144,55 @@ h4 {
     grid-area: 1 / 1 / 8/ 4;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     margin: 15px;
 }
 
 .a3 .showcase .section1 .image {
-    grid-area: 1 / 1 / 4 / 5;
+    grid-area: 1 / 1 / 4 / 3;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
 }
 
 .a3 .showcase .section1 .text-container {
-    grid-area: 4/ 1 / 5 / 3;
+    grid-area: 4/ 1 / 6 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
+.a3 .showcase .section1 .text-container .title{
+    grid-area: 1/1/2/3;
+}
+.a3 .showcase .section1 .text-container .text-area{
+    grid-area: 2/1/3/3;
+}
+.a3 .showcase .section1 .text-container .price-area{
+    grid-area: 3/1/4/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.a3 .showcase .section1 .text-container .price-area .price{
+    grid-area: 1/1/2/2;
 
+}
+.a3 .showcase .section1 .text-container .price-area .book{
+    grid-area: 1/2/2/3;
+    text-align: center;
+
+}
 .a3 .showcase .section2 {
     grid-area: 1 / 4 / 8/ 7;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     margin: 15px;
     
 }
 
 .a3 .showcase .section2 .image {
-    grid-area: 1 / 1 / 4 / 5;
+    grid-area: 1 / 1 / 4 / 3;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -178,29 +201,77 @@ h4 {
 }
 
 .a3 .showcase .section2 .text-container {
-    grid-area: 4/ 1 / 5 / 3;
+    grid-area: 4/ 1 / 6 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
+.a3 .showcase .section2 .text-container .title{
+    grid-area: 1/1/2/3;
+}
+.a3 .showcase .section2 .text-container .text-area{
+    grid-area: 2/1/3/3;
+}
+.a3 .showcase .section2 .text-container .price-area{
+    grid-area: 3/1/4/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.a3 .showcase .section2 .text-container .price-area .price{
+    grid-area: 1/1/2/2;
 
+}
+.a3 .showcase .section2 .text-container .price-area .book{
+    grid-area: 1/2/2/3;
+    text-align: center;
+
+}
 
 .a3 .showcase .section3 {
     grid-area: 1 / 7 / 8/ 10;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     margin: 15px;
     
 }
 
 .a3 .showcase .section3 .image {
-    grid-area: 1 / 1 / 4 / 5;
+    grid-area: 1 / 1 / 4 / 3;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
 
+
 }
 
 .a3 .showcase .section3 .text-container {
-    grid-area: 4/ 1 / 5 / 3;
+    grid-area: 4/ 1 / 6 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.a3 .showcase .section3 .text-container .title{
+    grid-area: 1/1/2/3;
+}
+.a3 .showcase .section3 .text-container .text-area{
+    grid-area: 2/1/3/3;
+}
+.a3 .showcase .section3 .text-container .price-area{
+    grid-area: 3/1/4/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.a3 .showcase .section3 .text-container .price-area .price{
+    grid-area: 1/1/2/2;
+
+}
+.a3 .showcase .section3 .text-container .price-area .book{
+    grid-area: 1/2/2/3;
+    text-align: center;
+
 }
 
 
@@ -286,17 +357,22 @@ h4 {
 
 }
 .a6 .text-area .contact-form {
-    grid-area: 2 / 2 / 5/ 4;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    justify-content: left;
+    grid-area: 2 / 1 / 7/ 4;
+    display: flex;
+    flex-direction: column; /* Items stack top to bottom */
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 80%;
+    overflow: hidden;
+    margin: 10px;
 }
 
 
 
 .a6 .image {
-    grid-area: 1 / 1 / 6 / 5;
+    grid-area: 1 / 1 / 4 / 5;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -475,33 +551,27 @@ html {
       visibility: visible;
 }
 
-.contact-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 300px;
-}
+
 
 
 .input-container {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 1vw;
 }
 .input-label {
     position: absolute;
-    top: 7px;
-    left: 10px;
-    font-size: 10px;
+    top: 1vw;
+    left: 1vw;
+    font-size: 1vw;
     font-weight: bold;
     color: #000000;
     transition: all 0.3s ease;
 }
 .message {
     position: absolute;
-    top: 7px;
-    left: 10px;
-    font-size: 10px;
+    top: 1vw;
+    left: 1vw;
+    font-size: 1vw;
     font-weight: bold;
     color: #000000;
     transition: all 0.3s ease;
@@ -520,7 +590,8 @@ input, select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 01vw;
+    height: 80%;
 }
 input::placeholder {
     color: transparent;
@@ -618,4 +689,37 @@ font-size: 14px;
 }
 .custom-link:visited {
     color: inherit; /* Keeps the color unchanged after being clicked */
+}
+
+#map {
+    width: 100%;
+    height: 100%; /* Adjust the height as needed */
+    border: none;
+    border-radius: var(--imgBorder);
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 1rem; /* Slightly smaller on medium screens */
+        padding: 12px;
+        width: 100%;
+    padding: 10px 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.1vw;
+    height: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    input, select, textarea {
+        width: 100%;
+    padding: 10px 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.1vw;
+    height: 50%;
+
+    }
 }
