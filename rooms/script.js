@@ -1,29 +1,33 @@
-// Get all form elements
+const API_BASE = window.location.hostname === 'localhost'
+    ? 'http://localhost:8080'
+    : window.location.origin;
+
+// Page view tracking
+fetch('https://turacoaddis.com/api/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ page: window.location.pathname, referrer: document.referrer })
+});
+
 const checkIn = document.getElementById('check-in');
 const checkOut = document.getElementById('check-out');
-const guests = document.getElementById("guests");
+const guests = document.getElementById('guests');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const submitButton = document.getElementById('submit-btn');
-const roomType = document.getElementById("room-type")
-const inputContainer = '.input-container'
-const dateContainer = '.check-date'
-const selectContainer= '.select-container'
+const roomType = document.getElementById('room-type');
 
-// Validation functions
+const inputContainer = '.input-container';
+const dateContainer = '.check-date';
+const selectContainer = '.select-container';
 
-function validateCurrentDate(date){
-    const givenDate = new Date(date);
-    const currentDate = new Date();
-    return givenDate > currentDate;
+function validateCurrentDate(date) {
+    return new Date(date) > new Date();
 }
+
 function validateDate(checkIn, checkOut) {
-
-    const checkInDate = new Date(checkIn);
-    const checkOutDate = new Date(checkOut);
-
-    return checkOutDate > checkInDate;
+    return new Date(checkOut) > new Date(checkIn);
 }
 
 function validateName(name) {
@@ -36,164 +40,120 @@ function validateEmail(email) {
 }
 
 function validatePhone(phone) {
-    const re = /^\d{10,15}$/; // Assumes a 10-digit phone number
-    return re.test(phone.replace(/\D/g, '')); // Remove non-digits before testing
+    const re = /^\d{10,15}$/;
+    return re.test(phone.replace(/\D/g, ''));
 }
 
-function validateGuests(guests){
-    if (guests === "X") {
-        return false;
-    }
-    return true
-
-}
-// Show error message
-function showError(input, message) {
-    const container = input.closest('.input-container');
-    container.classList.add('error');
-    const errorElement = container.querySelector('.error-message');
-    errorElement.textContent = message;
+function validateGuests(guests) {
+    return guests !== 'X';
 }
 
 function showError(input, message, containerType) {
     const container = input.closest(containerType);
     container.classList.add('error');
-    const errorElement = container.querySelector('.error-message');
-    errorElement.textContent = message;
+    container.querySelector('.error-message').textContent = message;
 }
 
-// Clear error message
 function clearError(input, containerType) {
     const container = input.closest(containerType);
     container.classList.remove('error');
-    const errorElement = container.querySelector('.error-message');
-    errorElement.textContent = '';
+    container.querySelector('.error-message').textContent = '';
 }
 
-function clearSubmit(){
+function clearSubmit() {
     submitButton.classList.add('animating');
-    setTimeout(() => {
-        submitButton.classList.remove('animating');
-    }, 1000);
-    submitButton.classList.remove('submit-error');
-    submitButton.classList.remove('submitted');
-    submitButton.textContent = 'Reserve';
+    setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
+    submitButton.classList.remove('submit-error', 'submitted');
+    submitButton.textContent = t('room_reserve');
 }
 
-
-
-// Validate form on submit
 submitButton.addEventListener('click', function(e) {
-    console.log("Submitted");
     e.preventDefault();
     let isValid = true;
 
-    // Validate dates
-
-    if(!validateCurrentDate(checkIn.value)){
-        showError(checkIn, 'Invalid Check In date', dateContainer);
+    if (!validateCurrentDate(checkIn.value)) {
+        showError(checkIn, t('err_checkin'), dateContainer);
         isValid = false;
     } else {
-
         clearError(checkIn, dateContainer);
     }
 
-    if(!validateCurrentDate(checkOut.value)){
-        showError(checkOut, 'Invalid Check Out date', dateContainer);
+    if (!validateCurrentDate(checkOut.value)) {
+        showError(checkOut, t('err_checkout'), dateContainer);
         isValid = false;
     } else {
         clearError(checkOut, dateContainer);
     }
-    
-    if (!validateDate(checkIn.value, checkOut.value) && validateCurrentDate(checkIn.value) && validateCurrentDate(checkOut.value)) {
-        showError(checkIn, 'Check in date must be greater than check out date', dateContainer);
+
+    if (!validateDate(checkIn.value, checkOut.value)
+        && validateCurrentDate(checkIn.value)
+        && validateCurrentDate(checkOut.value)) {
+        showError(checkIn, t('err_dates'), dateContainer);
         showError(checkOut, '', dateContainer);
-
         isValid = false;
-
-    } else {
-        if (isValid){
-            clearError(checkIn, dateContainer);
-            clearError(checkOut, dateContainer);
-        }
+    } else if (isValid) {
+        clearError(checkIn, dateContainer);
+        clearError(checkOut, dateContainer);
     }
-    // Validate name
+
     if (!validateName(nameInput.value)) {
-        showError(nameInput, 'Name is required', inputContainer);
+        showError(nameInput, t('err_name'), inputContainer);
         isValid = false;
     } else {
         clearError(nameInput, inputContainer);
     }
 
-    // Validate email
     if (!validateEmail(emailInput.value)) {
-        showError(emailInput, 'Please enter a valid email address', inputContainer);
+        showError(emailInput, t('err_email'), inputContainer);
         isValid = false;
     } else {
         clearError(emailInput, inputContainer);
     }
 
-    // Validate phone
     if (!validatePhone(phoneInput.value)) {
-        showError(phoneInput, 'Please enter a valid phone number', inputContainer);
+        showError(phoneInput, t('err_phone'), inputContainer);
         isValid = false;
     } else {
         clearError(phoneInput, inputContainer);
     }
 
     if (!validateGuests(guests.value)) {
-        showError(guests, 'Please enter a valid phone number', selectContainer);
+        showError(guests, t('err_guests'), selectContainer);
         isValid = false;
     } else {
         clearError(guests, selectContainer);
     }
 
-    
-
     if (isValid) {
-        console.log('Form is valid. Submitting...');
-        const checkInDate = new Date(checkIn.value);
-        const checkOutDate = new Date(checkOut.value);
         const postData = {
-            checkIn: checkInDate.toISOString(),
-            checkOut: checkOutDate.toISOString(),
+            checkIn: new Date(checkIn.value).toISOString(),
+            checkOut: new Date(checkOut.value).toISOString(),
             guests: parseInt(guests.value, 10),
             name: nameInput.value,
             email: emailInput.value,
             phoneNumber: phoneInput.value,
-            roomType: roomType.textContent,
-        }
+            roomType: roomType.dataset.roomType,
+        };
 
-        fetch('https://www.turacoaddis.com/api/reserve', {
+        fetch(`${API_BASE}/api/reserve`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)  // Convert data to JSON
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(postData)
         })
         .then(response => response.json())
         .then(data => {
-            submitButton.textContent = "We'll get in touch shortly.";
+            submitButton.textContent = t('success_contact');
             submitButton.classList.add('submitted', 'animating');
-            setTimeout(() => {
-                submitButton.classList.remove('animating');
-            }, 1000);
-           
-            
+            setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
         })
         .catch(error => {
-            console.error('Error:', error)
-            submitButton.textContent = 'Error! Please try again';
+            submitButton.textContent = t('err_try_again');
             submitButton.classList.add('submit-error', 'animating');
-            setTimeout(() => {
-                submitButton.classList.remove('animating');
-            }, 1000);
+            setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
         });
-       
     }
 });
 
-// Clear errors on input
 [nameInput, emailInput, phoneInput].forEach(input => {
     input.addEventListener('click', function() {
         clearError(input, inputContainer);
@@ -208,11 +168,7 @@ submitButton.addEventListener('click', function(e) {
     });
 });
 
-[guests].forEach(input => {
-    input.addEventListener('click', function() {
-        clearError(input, selectContainer);
-        clearSubmit();
-    });
+guests.addEventListener('click', function() {
+    clearError(guests, selectContainer);
+    clearSubmit();
 });
-
-console.log(roomType.textContent)

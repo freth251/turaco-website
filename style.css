@@ -10,18 +10,19 @@
 body {
     background-color: #ffffff;
     display: grid;
-    grid-template-columns: var(--cspacing) repeat(8, 1fr) var(--cspacing); 
+    grid-template-columns: var(--cspacing) repeat(8, 1fr) var(--cspacing);
     grid-template-rows: 0.1fr var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(2, 0.5fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.15fr) var(--rspacing) repeat(3, 0.20fr) var(--rspacing) repeat(1, 0.05fr);
-    font-family: "Lato", sans-serif;
     font-family: "Lato", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 1.2vw;
+    padding-top: 72px;
 }
 
 .logo img {
-    max-width: 50%; /* Image will not exceed the container width */
-    height: auto; /* Maintain aspect ratio */
+    max-height: 52px;
+    height: auto;
+    width: auto;
 }
 
 h1 {
@@ -53,7 +54,7 @@ h4 {
 
 }
 
-.scroll-button , .translate-button{
+.scroll-button {
     background-color: #ffffff;
     color: #832414;
     border: none;
@@ -61,27 +62,94 @@ h4 {
     padding: 1vw;
     font-size: 1.2vw;
     font-weight: 300;
+    cursor: pointer;
+}
 
+.lang-select {
+    background-color: #ffffff;
+    color: #832414;
+    border: 1px solid #832414;
+    border-radius: 4px;
+    font-family: "Lato", sans-serif;
+    padding: 4px 24px 4px 8px;
+    font-size: 13px;
+    font-weight: 300;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    width: auto;
+    height: auto;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23832414'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
 }
 
 .heading {
-    grid-area: 1 / 2 / 2 / 10;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); 
-    grid-template-rows: repeat(1, 1fr);
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
 .heading .logo {
-    grid-area: 1 / 1 / 2 / 4;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    display: flex;
+    align-items: center;
 }
 
 .heading .sections {
-    text-align: right;
-    grid-area: 1 / 4 / 2 / 10;
+    display: flex;
+    align-items: center;
+}
+
+.heading .sections nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav active state */
+.scroll-button.active {
+    background-color: #ead9a7;
+    border-bottom: 2px solid #832414;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+}
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #832414;
+    border-radius: 2px;
+}
+
+/* Mobile nav close button — hidden on desktop */
+.nav-close {
+    display: none;
 }
 
 .a1 {
@@ -95,7 +163,7 @@ h4 {
 .a1 .text-area{
     grid-area: 1 / 1 / 6 / 5;
     display: grid;
-    grid-template-columns: repeat(3. 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
 
@@ -108,9 +176,9 @@ h4 {
     
 }
 .a1 .text-area .text{
-    grid-area: 3 / 1 / 6 / 2;
+    grid-area: 3 / 1 / 6 / 4;
     word-wrap: break-word;
-    overflow: hidden;
+    overflow: visible;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -362,10 +430,10 @@ h4 {
     flex-direction: column; /* Items stack top to bottom */
     background-color: white;
     padding: 20px;
+    padding-bottom: 24px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 80%;
-    overflow: hidden;
     margin: 10px;
 }
 
@@ -390,6 +458,23 @@ button:hover {
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 72px;
+}
+
+.a1, .a3, .a4, .a5, .a6 {
+    scroll-snap-align: start;
+}
+
+/* Force LTR on all carousels so RTL (Arabic) layout doesn't hide slides */
+.swiper-container-main,
+.swiper-container1,
+.swiper-container2,
+.swiper-container3,
+.swiper-container-event,
+.swiper-container-amenities,
+.swiper-container-cu {
+    direction: ltr;
 }
 
 .swiper-container-main {
@@ -451,19 +536,19 @@ html {
 
 
 .swiper-button-prev, .swiper-button-next {
-    width: 30px; /* Adjust as needed */
-    height: 30px; /* Adjust as needed */
-    background: rgb(255, 255, 255); /* Semi-transparent background */
-    color: rgb(0, 0, 0); /* Button color */
-    border-radius: 50%; /* Make it circular */
-
-    justify-content: center; /* Center the arrow */
-    align-items: center; /* Center the arrow */
+    width: 30px;
+    height: 30px;
+    background: none !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    border-radius: 0 !important;
+    justify-content: center;
+    align-items: center;
     display: flex;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    --swiper-navigation-color: rgba(255, 255, 255, 0.85);
 }
   
   
@@ -636,6 +721,12 @@ textarea::placeholder {
 .contact-us-button.submitted:hover {
     background: linear-gradient(to bottom,  #1c613e, #309026);
 }
+.contact-us-button.submit-error {
+    background: linear-gradient(to bottom, #b44343, #611c1c);
+}
+.contact-us-button.submit-error:hover {
+    background: linear-gradient(to bottom, #611c1c, #b44343);
+}
 .contact-us-button.animating {
     animation: pulse 1s;
 }
@@ -698,28 +789,279 @@ font-size: 14px;
     border-radius: var(--imgBorder);
 }
 
-/* Responsive Font Sizes */
-@media (max-width: 768px) {
-    input, select, textarea {
-        font-size: 1rem; /* Slightly smaller on medium screens */
-        padding: 12px;
-        width: 100%;
-    padding: 10px 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.1vw;
-    height: 50%;
-    }
+/* Room card hover */
+.a3 .showcase .section1,
+.a3 .showcase .section2,
+.a3 .showcase .section3 {
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.a3 .showcase .section1:hover,
+.a3 .showcase .section2:hover,
+.a3 .showcase .section3:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.13);
 }
 
-@media (max-width: 480px) {
-    input, select, textarea {
-        width: 100%;
-    padding: 10px 5px 10px;
-    border: 1px solid #ccc;
+/* Book Now button — semi-transparent yellow, matches nav hover */
+.book a.custom-link {
+    display: inline-block;
+    background: rgba(234, 217, 167, 0.55);
+    color: #832414 !important;
+    padding: 5px 14px;
     border-radius: 4px;
-    font-size: 0.1vw;
-    height: 50%;
+    font-size: 0.9em;
+    border: 1px solid rgba(183, 143, 60, 0.35);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.book a.custom-link:visited {
+    color: #832414 !important;
+}
+.book a.custom-link:hover {
+    background: rgba(234, 217, 167, 0.9);
+    box-shadow: 0 0 10px rgba(234, 217, 167, 0.85);
+    transform: scale(1.05);
+    color: #832414 !important;
+}
+.book h4 {
+    margin: 0;
+}
 
+/* Shared: text-container padding and price-area alignment */
+.a3 .showcase .section1 .text-container,
+.a3 .showcase .section2 .text-container,
+.a3 .showcase .section3 .text-container {
+    padding: 10px 12px;
+}
+.a3 .showcase .section1 .text-container .price-area,
+.a3 .showcase .section2 .text-container .price-area,
+.a3 .showcase .section3 .text-container .price-area {
+    align-items: center;
+}
+
+/* Booking disclosure note */
+.booking-note {
+    font-size: 0.72em;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    body {
+        display: block;
+        font-size: 4vw;
+        padding-top: 56px;
+    }
+
+    /* --- Header --- */
+    .heading {
+        padding: 8px 16px;
+        height: 56px;
+    }
+    .heading .logo img {
+        max-width: 120px;
+    }
+    .heading .sections nav {
+        gap: 6px;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: 2000;
+    }
+    .nav-links.open {
+        display: flex;
+    }
+    .nav-links .scroll-button {
+        font-size: 1.3rem;
+        padding: 12px 24px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #832414;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .lang-select {
+        font-size: 0.85rem;
+        padding: 4px 22px 4px 6px;
+        background-position: right 6px center;
+    }
+
+    /* --- Sections: block layout --- */
+    .a1, .a3, .a4, .a5, .a6 {
+        display: block;
+        padding: 24px 16px;
+        grid-area: unset;
+    }
+
+    /* Hero */
+    .a1 .text-area,
+    .a1 .image {
+        display: block;
+        grid-area: unset;
+        width: 100%;
+    }
+    .a1 .text-area .main-title,
+    .a1 .text-area .subheader,
+    .a1 .text-area .text {
+        grid-area: unset;
+        display: block;
+    }
+    .a1 .image {
+        height: 55vw;
+        margin-top: 16px;
+    }
+
+    /* Rooms */
+    .a3 .title { grid-area: unset; }
+    .a3 .showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        grid-area: unset;
+    }
+    .a3 .showcase .section1,
+    .a3 .showcase .section2,
+    .a3 .showcase .section3 {
+        grid-area: unset;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    .a3 .showcase .section1 .image,
+    .a3 .showcase .section2 .image,
+    .a3 .showcase .section3 .image {
+        grid-area: unset;
+        height: 55vw;
+    }
+    .a3 .showcase .section1 .text-container,
+    .a3 .showcase .section2 .text-container,
+    .a3 .showcase .section3 .text-container {
+        grid-area: unset;
+        display: block;
+        padding: 8px 0;
+    }
+    .a3 .showcase .section1 .text-container .title,
+    .a3 .showcase .section2 .text-container .title,
+    .a3 .showcase .section3 .text-container .title,
+    .a3 .showcase .section1 .text-container .text-area,
+    .a3 .showcase .section2 .text-container .text-area,
+    .a3 .showcase .section3 .text-container .text-area {
+        grid-area: unset;
+        display: block;
+    }
+    .a3 .showcase .section1 .text-container .price-area,
+    .a3 .showcase .section2 .text-container .price-area,
+    .a3 .showcase .section3 .text-container .price-area {
+        grid-area: unset;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .a3 .showcase .section1 .text-container .price-area .price,
+    .a3 .showcase .section2 .text-container .price-area .price,
+    .a3 .showcase .section3 .text-container .price-area .price,
+    .a3 .showcase .section1 .text-container .price-area .book,
+    .a3 .showcase .section2 .text-container .price-area .book,
+    .a3 .showcase .section3 .text-container .price-area .book {
+        grid-area: unset;
+        text-align: unset;
+    }
+
+    /* Events */
+    .a4 .text-area,
+    .a4 .image {
+        grid-area: unset;
+        display: block;
+        width: 100%;
+    }
+    .a4 .text-area .main-title,
+    .a4 .text-area .subtext,
+    .a4 .text-area .contact-button {
+        grid-area: unset;
+        display: block;
+    }
+    .a4 .image {
+        height: 55vw;
+        margin-top: 16px;
+    }
+
+    /* Amenities */
+    .a5 .text-area,
+    .a5 .image {
+        grid-area: unset;
+        display: block;
+        width: 100%;
+    }
+    .a5 .text-area .main-title,
+    .a5 .text-area .list-amenities {
+        grid-area: unset;
+        display: block;
+    }
+    .a5 .image {
+        height: 55vw;
+        margin-top: 16px;
+    }
+
+    /* Contact */
+    .a6 .text-area,
+    .a6 .image {
+        grid-area: unset;
+        display: block;
+        width: 100%;
+    }
+    .a6 .text-area .main-title,
+    .a6 .text-area .contact-form {
+        grid-area: unset;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    .a6 .image {
+        height: 60vw;
+        margin-top: 16px;
+    }
+    #map { width: 100%; height: 100%; }
+
+    /* Footer */
+    .footer { grid-area: unset; }
+
+    /* Typography */
+    h1 { font-size: 8vw; }
+    h2 { font-size: 5.5vw; }
+    h3 { font-size: 5vw; }
+
+    /* Form inputs */
+    input, select, textarea {
+        font-size: 1rem;
+        padding: 10px 8px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: auto;
+    }
+    .scroll-button {
+        font-size: 1rem;
+        padding: 10px;
     }
 }

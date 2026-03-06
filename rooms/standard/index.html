@@ -3,121 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms</title>
-    <link rel="stylesheet" href="../style.css">
+    <meta name="description" content="Turaco Addis Standard Room — cozy bed with premium linens, free Wi-Fi, flat-screen TV. 3000 Birr per night.">
+    <title>Standard Room — Turaco Addis</title>
+    <link rel="stylesheet" href="../style.css?v=8">
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="heading">
         <div class="logo">
-            <img src="../../images/logo.jpg" alt="Description of the image" class="logo">
+            <img src="../../images/logo.jpg" alt="Turaco Addis Hotel Logo" class="logo">
         </div>
         <div class="sections">
-            <tr>
-                <a href="../../index.html#a1" class="custom-link">
-                    <button class="scroll-button">Home</button>
-                </a>
-                <a href="../../index.html#a3" class="custom-link">
-                    <button class="scroll-button">Rooms</button>
-                </a>
-                <a href="../../index.html#a4" class="custom-link">
-                    <button class="scroll-button">Events</button>
-                </a>
-                <a href="../../index.html#a5" class="custom-link">
-                    <button class="scroll-button">Amenities</button>
-                </a>
-                <a href="../../index.html#a6" class="custom-link">
-                    <button class="scroll-button">Contact Us</button>
-                </a>
-                <button class="translate-button">En/Amh</button>
-            </tr>
+            <nav>
+                <div class="nav-links" id="nav-links">
+                    <button class="nav-close" id="nav-close" aria-label="Close menu">&times;</button>
+                    <a href="../../index.html#a1" class="custom-link">
+                        <button class="scroll-button" data-i18n="nav_home">Home</button>
+                    </a>
+                    <a href="../../index.html#a3" class="custom-link">
+                        <button class="scroll-button" data-i18n="nav_rooms">Rooms</button>
+                    </a>
+                    <a href="../../index.html#a4" class="custom-link">
+                        <button class="scroll-button" data-i18n="nav_events">Events</button>
+                    </a>
+                    <a href="../../index.html#a5" class="custom-link">
+                        <button class="scroll-button" data-i18n="nav_amenities">Amenities</button>
+                    </a>
+                    <a href="../../index.html#a6" class="custom-link">
+                        <button class="scroll-button" data-i18n="nav_contact">Contact Us</button>
+                    </a>
+                </div>
+                <select class="lang-select" id="lang-select">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="am">🇪🇹 AM</option>
+                    <option value="ar">🇸🇦 AR</option>
+                </select>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
         </div>
     </div>
     <div class="gallery">
-        <img class="image1" src="../../images/single-room.jpg"></img> 
-        <img class="image2" src="../../images/single-room1.jpg"></img> 
-        <img class="image3" src="../../images/hall.jpg"></img> 
-        <img class="image4" src="../../images/lobby1.jpg"></img> 
-        <img class="image5" src="../../images/front3.jpg"></img> 
+        <img class="image1" src="../../images/single-room.jpg" alt="Standard room bed" loading="lazy">
+        <img class="image2" src="../../images/single-room1.jpg" alt="Standard room alternate view" loading="lazy">
+        <img class="image3" src="../../images/hall.jpg" alt="Hotel event hall" loading="lazy">
+        <img class="image4" src="../../images/lobby1.jpg" alt="Hotel lobby" loading="lazy">
+        <img class="image5" src="../../images/front3.jpg" alt="Hotel exterior" loading="lazy">
     </div>
     <div class="room-amenities">
         <div class="title-container">
-            <div class="title" id="room-type"><h1>Standard Room</h1></div>
-            <div class="subheader"><h3>2 guests, 1bed, 1bath</h3></div>    
+            <div class="title" id="room-type" data-room-type="Standard Room">
+                <h1 data-i18n="std_title">Standard Room</h1>
+            </div>
+            <div class="subheader"><h3 data-i18n="std_sub">2 guests, 1 bed, 1 bath</h3></div>
         </div>
         <div class="amenities">
             <ul>
-                <li>Large bed with premium linens</li>
-                <li>Desk and ergonomic chair</li>
-                <li>Private balcony with scenic views</li>
-                <li>Free high-speed Wi-Fi</li>
-                <li>Mini-fridge and coffee/tea maker</li>
-                <li>Ensuite bathroom with luxury toiletries</li>
-                <li>Air conditioning and adjustable lighting</li>
-                <li>In-room safe and electronic key card access</li>
-                <li>Daily housekeeping service</li>
-              </ul>              
+                <li data-i18n="std_a1">Large bed with premium linens</li>
+                <li data-i18n="std_a2">Desk and ergonomic chair</li>
+                <li data-i18n="std_a3">Private balcony with scenic views</li>
+                <li data-i18n="std_a4">Free high-speed Wi-Fi</li>
+                <li data-i18n="std_a5">Mini-fridge and coffee/tea maker</li>
+                <li data-i18n="std_a6">Ensuite bathroom with luxury toiletries</li>
+                <li data-i18n="std_a7">Air conditioning and adjustable lighting</li>
+                <li data-i18n="std_a8">In-room safe and electronic key card access</li>
+                <li data-i18n="std_a9">Daily housekeeping service</li>
+            </ul>
         </div>
     </div>
     <div class="reserve-form">
         <div class="container">
-            <h2>3000 Birr per night</h2>
+            <h2 data-i18n="std_price">3000 Birr per night</h2>
             <div class="check-info">
                 <div>
                     <div class="check-date">
-                        <input type="text" id="check-in" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" value="2024-03-11">
-                        <label for="check-in" class="input-label">CHECK-IN</label>
-                        <div class="error-message" id="name-error"></div>
+                        <input type="text" id="check-in" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                        <label for="check-in" class="input-label" data-i18n="room_checkin">CHECK-IN</label>
+                        <div class="error-message"></div>
                     </div>
                     <div class="check-date">
-                        <input type="text" id="check-out" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" value="2024-03-11">
-                        <label for="check-out" class="input-label">CHECK-OUT</label>
-                        <div class="error-message" id="name-error"></div>
+                        <input type="text" id="check-out" placeholder=" " onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                        <label for="check-out" class="input-label" data-i18n="room_checkout">CHECK-OUT</label>
+                        <div class="error-message"></div>
                     </div>
                 </div>
                 <div class="select-container">
-                    <select id="guests"> GUESTS
-                        <option value="X">Guests</option>
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
+                    <select id="guests">
+                        <option value="X" data-i18n-opt="room_guests_placeholder">Guests</option>
+                        <option value="1" data-i18n-opt="room_guest1">1 Guest</option>
+                        <option value="2" data-i18n-opt="room_guest2">2 Guests</option>
+                        <option value="3" data-i18n-opt="room_guest3">3 Guests</option>
+                        <option value="4" data-i18n-opt="room_guest4">4 Guests</option>
                     </select>
                     <div class="error-message" id="select-error"></div>
                 </div>
             </div>
             <div class="input-container">
                 <input type="text" id="name" placeholder=" ">
-                <label for="name" class="input-label">NAME</label>
-                <div class="error-message" id="name-error"></div>
+                <label for="name" class="input-label" data-i18n="form_name">NAME</label>
+                <div class="error-message"></div>
             </div>
             <div class="input-container">
                 <input type="email" id="email" placeholder=" ">
-                <label for="email" class="input-label">EMAIL</label>
-                <div class="error-message" id="name-error"></div>
+                <label for="email" class="input-label" data-i18n="form_email">EMAIL</label>
+                <div class="error-message"></div>
             </div>
             <div class="input-container">
                 <input type="tel" id="phone" placeholder=" ">
-                <label for="phone" class="input-label">PHONE NUMBER</label>
-                <div class="error-message" id="name-error"></div>
+                <label for="phone" class="input-label" data-i18n="form_phone">PHONE NUMBER</label>
+                <div class="error-message"></div>
             </div>
-            <button id="submit-btn" class="reserve-button" >Reserve</button>
+            <button id="submit-btn" class="reserve-button" data-i18n="room_reserve">Reserve</button>
+            <p class="booking-note" data-i18n="booking_note" style="font-size:0.75em;color:#888;margin-top:8px;font-style:italic;">Booking is not confirmed until you receive a confirmation call from our team.</p>
         </div>
     </div>
     <div class="footer">
         <footer>
             <div class="footer-container">
-              <p>Follow us on:</p>
+              <p data-i18n="footer_follow">Follow us on:</p>
               <ul class="social-media">
                 <li><a href="https://www.facebook.com/profile.php?id=61564141656155&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="https://g.co/kgs/om6qK2E" target="_blank"><i class="fab fa-google"></i></a></li>
                 <li><a href="https://www.instagram.com/turacoaddishotel?igsh=MTllaGI1NGZ4cXF5dw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
               </ul>
-              <p>&copy; 2024 Turaco Addis. All Rights Reserved.</p>
+              <p data-i18n="footer_copy">&copy; 2026 Turaco Addis. All Rights Reserved.</p>
             </div>
-          </footer>          
+          </footer>
     </div>
-    <script src="../script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
-
+    <script src="../../translations.js"></script>
+    <script src="../script.js"></script>
 </body>
+</html>

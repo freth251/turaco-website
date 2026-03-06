@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Turaco Addis Hotel — affordable luxury in the heart of Addis Ababa. Book standard rooms, deluxe suites, and double beds. Event hall for up to 200 guests.">
     <title>Turaco Addis</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Your content goes here -->
     <div class="heading">
         <div class="logo">
-            <img src="images/logo.jpg" alt="Description of the image">
+            <img src="images/logo.jpg" alt="Turaco Addis Hotel Logo">
         </div>
         <div class="sections">
-            <tr>
-                <button class="scroll-button" data-target="a1">Home </button>
-                <button class="scroll-button" data-target="a3">Rooms</button>
-                <button class="scroll-button" data-target="a4">Events</button>
-                <button class="scroll-button" data-target="a5">Amenities</button>
-                <button class="scroll-button" data-target="a6">Contact Us</button>
-                <button class="translate-button">🇺🇸En/🇪🇹Amh</button>
-            </tr>
+            <nav>
+                <div class="nav-links" id="nav-links">
+                    <button class="nav-close" id="nav-close" aria-label="Close menu">&times;</button>
+                    <button class="scroll-button active" data-target="a1" data-i18n="nav_home">Home</button>
+                    <button class="scroll-button" data-target="a3" data-i18n="nav_rooms">Rooms</button>
+                    <button class="scroll-button" data-target="a4" data-i18n="nav_events">Events</button>
+                    <button class="scroll-button" data-target="a5" data-i18n="nav_amenities">Amenities</button>
+                    <button class="scroll-button" data-target="a6" data-i18n="nav_contact">Contact Us</button>
+                </div>
+                <select class="lang-select" id="lang-select">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="am">🇪🇹 AM</option>
+                    <option value="ar">🇸🇦 AR</option>
+                </select>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
         </div>
     </div>
 
     <div class="a1" id="a1">
         <div class="text-area">
             <div class="main-title">
-                <h1> Turaco Addis Hotel</h1>
+                <h1 data-i18n="hero_title">Turaco Addis Hotel</h1>
             </div>
             <div class="subheader">
-                <h2> Affordable Luxury in the City's Heart</h2>
+                <h2 data-i18n="hero_subtitle">Affordable Luxury in the City's Heart</h2>
             </div>
 
             <div class="text">
-                <p> 
+                <p data-i18n-html="hero_text">
                     Welcome to Turaco Addis, where <strong>comfort</strong> meets <strong>affordability</strong> in the vibrant center of Addis Ababa.
-                    <br>
-                    
-                    <br>Our elegantly designed rooms offer a blend of luxury and relaxation, tailored for both business and
+                    <br><br>Our elegantly designed rooms offer a blend of luxury and relaxation, tailored for both business and
                      leisure travelers. Enjoy world-class amenities, exceptional service, and easy access to the city's
                      cultural and commercial hubs, all at a price that won't break your budget. <br>
-                     
-                    <br>Experience the best of Addis Ababa at Turaco Addis, your home away from home.</p>
+                    <br>Experience the best of Addis Ababa at Turaco Addis, your home away from home.
+                </p>
             </div>
         </div>
 
         <div class="image">
             <div class="swiper-container-main">
                 <div class="swiper-wrapper">
-                   <div class="swiper-slide"><img src="images/front3.jpg" alt="Image 1"></div>
-                   <div class="swiper-slide"><img src="images/front2.jpg" alt="Image 2"></div>
-                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Image 3"></div>
-                   <div class="swiper-slide"><img src="images/restaurant5.jpg" alt="Image 4"></div>
-                   <div class="swiper-slide"><img src="images/restaurant4.jpg" alt="Image 5"></div>
-                   <div class="swiper-slide"><img src="images/hall.jpg" alt="Image 5"></div>
-                   <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Image 5"></div>
+                   <div class="swiper-slide"><img src="images/front3.jpg" alt="Hotel exterior front view"></div>
+                   <div class="swiper-slide"><img src="images/front2.jpg" alt="Hotel exterior side view"></div>
+                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Hotel lobby"></div>
+                   <div class="swiper-slide"><img src="images/restaurant5.jpg" alt="Hotel restaurant"></div>
+                   <div class="swiper-slide"><img src="images/restaurant4.jpg" alt="Hotel dining area"></div>
+                   <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall"></div>
+                   <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Deluxe suite bedroom"></div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -70,7 +78,7 @@
 
     <div class="a3" id="a3">
         <div class="title">
-            <h1> Rooms</h1>
+            <h1 data-i18n="rooms_title">Rooms</h1>
         </div>
 
         <div class="showcase">
@@ -78,9 +86,9 @@
                 <div class="image">
                     <div class="swiper-container1">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/single-room.jpg" alt="Image 1"></div>
-                           <div class="swiper-slide"><img src="images/single-room1.jpg" alt="Image 2"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Image 3"></div>
+                           <div class="swiper-slide"><img src="images/single-room.jpg" alt="Standard room" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/single-room1.jpg" alt="Standard room alternate view" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
@@ -89,19 +97,19 @@
                 </div>
                 <div class="text-container">
                     <div class="title">
-                        <h3><a href="./rooms/standard/index.html" class="custom-link">Standard Room</a> </h3>
+                        <h3><a href="./rooms/standard/index.html" class="custom-link" data-i18n="room_standard_name">Standard Room</a></h3>
                     </div>
                     <div class="text-area">
-                        <p>Cozy bed with premium linens, free Wi-Fi, flat-screen TV, and modern amenities—perfect for solo travelers.</p>
+                        <p data-i18n="room_standard_desc">Cozy bed with premium linens, free Wi-Fi, flat-screen TV, and modern amenities—perfect for solo travelers.</p>
                     </div>
                     <div class="price-area">
                         <div class="price">
-                            <h4><a href="./rooms/standard/index.html" class="custom-link">3000 Birr per night</a></h4>
+                            <h4><a href="./rooms/standard/index.html" class="custom-link" data-i18n="room_standard_price">3000 Birr per night</a></h4>
                         </div>
                         <div class="book">
-                            <h4><a href="./rooms/standard/index.html" class="custom-link">Book Now </a></h4>
+                            <h4><a href="./rooms/standard/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
 
@@ -109,11 +117,10 @@
                 <div class="image">
                     <div class="swiper-container2">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Image 1"></div>
-                           <div class="swiper-slide"><img src="images/deluxe-room2.jpg" alt="Image 1"></div>
-                           <div class="swiper-slide"><img src="images/deluxe-room3.jpg" alt="Image 1"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Image 1"></div>
-
+                           <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Deluxe suite" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/deluxe-room2.jpg" alt="Deluxe suite living area" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/deluxe-room3.jpg" alt="Deluxe suite bathroom" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
@@ -122,19 +129,19 @@
                 </div>
                 <div class="text-container">
                     <div class="title">
-                        <h3><a href="./rooms/deluxe-suite/index.html" class="custom-link">Deluxe Suite</a></h3>
+                        <h3><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="room_deluxe_name">Deluxe Suite</a></h3>
                     </div>
                     <div class="text-area">
-                        <p>Elegant suite with a spacious living area, premium bedding, and modern amenities—ideal for both work and relaxation.</p>
+                        <p data-i18n="room_deluxe_desc">Elegant suite with a spacious living area, premium bedding, and modern amenities—ideal for both work and relaxation.</p>
                     </div>
                     <div class="price-area">
                         <div class="price">
-                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link">4200 Birr per night </a></h4>
+                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="room_deluxe_price">4200 Birr per night</a></h4>
                         </div>
                         <div class="book">
-                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link">Book Now </a></h4>
+                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
                         </div>
-                    </div>  
+                    </div>
                 </div>
 
             </div>
@@ -143,8 +150,8 @@
                 <div class="image">
                     <div class="swiper-container3">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/double-room1.jpg" alt="Image 1"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Image 2"></div>
+                           <div class="swiper-slide"><img src="images/double-room1.jpg" alt="Double bed room" loading="lazy"></div>
+                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
@@ -153,21 +160,21 @@
                 </div>
                 <div class="text-container">
                     <div class="title">
-                        <h3><a href="./rooms/double/index.html" class="custom-link">Double Bed</a></h3>
+                        <h3><a href="./rooms/double/index.html" class="custom-link" data-i18n="room_double_name">Double Bed</a></h3>
                     </div>
                     <div class="text-area">
-                        <p>Comfortable twin beds with premium linens and modern amenities—ideal for friends or family traveling together.</p>
+                        <p data-i18n="room_double_desc">Two large beds with premium linens and modern amenities—ideal for friends or family traveling together.</p>
                     </div>
                     <div class="price-area">
                         <div class="price">
-                            <h4><a href="./rooms/double/index.html" class="custom-link">4500 Birr per night</a></h4>
+                            <h4><a href="./rooms/double/index.html" class="custom-link" data-i18n="room_double_price">4500 Birr per night</a></h4>
                         </div>
                         <div class="book">
-                            <h4><a href="./rooms/double/index.html" class="custom-link">Book Now</a></h4>
+                            <h4><a href="./rooms/double/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
                         </div>
                     </div>
                 </div>
-    
+
             </div>
         </div>
     </div>
@@ -175,26 +182,23 @@
     <div class="a4" id="a4">
         <div class="text-area">
             <div class="main-title">
-                <h1>Events</h1>
+                <h1 data-i18n="events_title">Events</h1>
             </div>
-            <div class="subtext" >
-                <p> 
-                    Our versatile event hall, capable of accomodating up to 200 people, is ideal for weddings, large gatherings, and meetings. 
-                    Featuring spacious, elegant design, advanced audiovisual technology, and customizable seating, it combines style and functionality. 
-                    Our dedicated team ensures a seamless, memorable experience. Contact us to find out more.</p>
+            <div class="subtext">
+                <p data-i18n="events_text">Our versatile event hall, capable of accommodating up to 200 people, is ideal for weddings, large gatherings, and meetings. Featuring spacious, elegant design, advanced audiovisual technology, and customizable seating, it combines style and functionality. Our dedicated team ensures a seamless, memorable experience. Contact us to find out more.</p>
             </div>
             <div class="contact-button">
-                <button class="scroll-button" data-target="a6">Contact Us</button>
+                <button class="scroll-button" data-target="a6" data-i18n="nav_contact">Contact Us</button>
             </div>
         </div>
 
         <div class="image">
             <div class="swiper-container-event">
                 <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="./images/events2.jpg" alt="Image 4"></div>
-                   <div class="swiper-slide"><img src="./images/events.jpg" alt="Image 1"></div>
-                   <div class="swiper-slide"><img src="./images/meeting1c.jpg" alt="Image 2"></div>
-                   <div class="swiper-slide"><img src="./images/restaurant4.jpg" alt="Image 3"></div>
+                    <div class="swiper-slide"><img src="./images/events2.jpg" alt="Hotel event setup" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="./images/events.jpg" alt="Hotel event hall" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="./images/meeting1c.jpg" alt="Meeting room setup" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="./images/restaurant4.jpg" alt="Hotel dining area" loading="lazy"></div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -206,26 +210,25 @@
     <div class="a5" id="a5">
         <div class="text-area">
             <div class="main-title">
-                <h1>Amenities</h1>
+                <h1 data-i18n="amenities_title">Amenities</h1>
             </div>
-            <div class="list-amenities" >
+            <div class="list-amenities">
                 <ul>
-                    <li>Free Wi-Fi</li>
-                    <li>Exceptional Location</li>
-                    <li>Beautiful Views</li>
-                    <li>Parking</li>
-                    <li>Bar & Restaurant</li>
-                    <li>Flat Screen TV with satellite channels</li>
-                
+                    <li data-i18n="amenity_wifi">Free Wi-Fi</li>
+                    <li data-i18n="amenity_location">Exceptional Location</li>
+                    <li data-i18n="amenity_views">Beautiful Views</li>
+                    <li data-i18n="amenity_parking">Parking</li>
+                    <li data-i18n="amenity_bar">Bar &amp; Restaurant</li>
+                    <li data-i18n="amenity_tv">Flat Screen TV with satellite channels</li>
                 </ul>
             </div>
         </div>
         <div class="image">
             <div class="swiper-container-amenities">
                 <div class="swiper-wrapper">
-                   <div class="swiper-slide"><img src="images/bar1.jpg" alt="Image 1"></div>
-                   <div class="swiper-slide"><img src="images/front1.jpg" alt="Image 2"></div>
-                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Image 3"></div>
+                   <div class="swiper-slide"><img src="images/bar1.jpg" alt="Hotel bar" loading="lazy"></div>
+                   <div class="swiper-slide"><img src="images/front1.jpg" alt="Hotel exterior" loading="lazy"></div>
+                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Hotel lobby" loading="lazy"></div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -233,62 +236,59 @@
             </div>
         </div>
     </div>
+
     <div class="a6" id="a6">
         <div class="text-area">
             <div class="main-title">
-                <h1>Contact Us</h1>
+                <h1 data-i18n="contact_title">Contact Us</h1>
             </div>
-            <div class="contact-form" >
+            <div class="contact-form">
                 <div class="input-container">
                     <input type="text" id="name" placeholder=" ">
-                    <label for="name" class="input-label">NAME</label>
+                    <label for="name" class="input-label" data-i18n="form_name">NAME</label>
                     <div class="error-message" id="name-error"></div>
                 </div>
                 <div class="input-container">
                     <input type="email" id="email" placeholder=" ">
-                    <label for="email" class="input-label">EMAIL</label>
+                    <label for="email" class="input-label" data-i18n="form_email">EMAIL</label>
                     <div class="error-message" id="email-error"></div>
                 </div>
                 <div class="input-container">
                     <input type="tel" id="phone" placeholder=" ">
-                    <label for="phone" class="input-label">PHONE NUMBER</label>
+                    <label for="phone" class="input-label" data-i18n="form_phone">PHONE NUMBER</label>
                     <div class="error-message" id="phone-error"></div>
                 </div>
                 <div class="input-container">
                     <textarea name="comments" id="message" cols="20" rows="4" placeholder=" "></textarea>
-                    <label for="message" class="message">MESSAGE</label>
+                    <label for="message" class="message" data-i18n="form_message">MESSAGE</label>
                     <div class="error-message" id="message-error"></div>
                 </div>
-                <button class="contact-us-button" id="submit-btn">Contact Us</button>
+                <button class="contact-us-button" id="submit-btn" data-i18n="form_submit">Contact Us</button>
             </div>
-            
         </div>
 
         <div class="image">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15762.976402633172!2d38.7654357!3d8.9956785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b850054356149%3A0xb0a94c955ea14539!2sTuraco%20Addis%20Hotel!5e0!3m2!1sen!2sca!4v1731127432191!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
-    
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15762.976402633172!2d38.7654357!3d8.9956785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b850054356149%3A0xb0a94c955ea14539!2sTuraco%20Addis%20Hotel!5e0!3m2!1sen!2sca!4v1731127432191!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map" title="Turaco Addis Hotel location map"></iframe>
         </div>
     </div>
+
     <div class="footer">
         <footer>
             <div class="footer-container">
-              <p>Follow us on:</p>
+              <p data-i18n="footer_follow">Follow us on:</p>
               <ul class="social-media">
                 <li><a href="https://www.facebook.com/profile.php?id=61564141656155&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="https://g.co/kgs/om6qK2E" target="_blank"><i class="fab fa-google"></i></a></li>
                 <li><a href="https://www.instagram.com/turacoaddishotel?igsh=MTllaGI1NGZ4cXF5dw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
               </ul>
-              <p>&copy; 2024 Turaco Addis. All Rights Reserved.</p>
+              <p data-i18n="footer_copy">&copy; 2026 Turaco Addis. All Rights Reserved.</p>
             </div>
-          </footer>          
+          </footer>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
-
+    <script src="translations.js"></script>
     <script src="script.js"></script>
-
-
 
 </body>
 </html>
