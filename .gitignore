@@ -1,2 +1,6 @@
 .vscode/
 .DS_Store
+claude.start
+__p/
+rooms/__p/
+.claude/

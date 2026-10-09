@@ -1,195 +1,196 @@
-const API_BASE = window.location.hostname === 'localhost'
-    ? 'http://localhost:8080'
-    : window.location.origin;
+/* Where the API lives.
+   Default is SAME-ORIGIN, so production calls /api/contact on turacoaddis.com and
+   there is never a hardcoded host in shipped code. To point a local page at a
+   local backend, define the override before this script loads:
+       <script>window.TURACO_CONFIG = { apiBase: 'http://localhost:8080' };</script> */
+const API_BASE = (window.TURACO_CONFIG && window.TURACO_CONFIG.apiBase) || '';
+const FRONT_DESK_EMAIL = 'amentamerat@gmail.com';
+const FRONT_DESK_TEL = '+251911208751';
 
-// Page view tracking
-fetch('https://turacoaddis.com/api/track', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ page: window.location.pathname, referrer: document.referrer })
-});
-
-
-function newSwiper(swiperContainer){
-    return new Swiper(swiperContainer, {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        slidesPerView: 1,
-        spaceBetween: 20,
-        centeredSlides: true,
-        speed: 1200,
-        cssMode: false,
-        effect: 'slide'
-    });
+// Thin wrapper so a missing telemetry.js can never break the forms.
+function track(event, props) {
+    try {
+        if (window.Turaco && window.Turaco.track) window.Turaco.track(event, props);
+    } catch (e) { /* ignore */ }
 }
 
-function newSwiperAuto(swiperContainer){
-    const randomNumber = Math.floor(Math.random() * 10) + 1;
-    return new Swiper(swiperContainer, {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        slidesPerView: 1,
-        spaceBetween: 20,
-        centeredSlides: true,
-        autoplay: {
-            delay: 5000 + randomNumber * 500,
-            disableOnInteraction: false,
-        },
-        speed: 1200,
-        cssMode: false,
-        effect: 'slide',
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollButtons = document.querySelectorAll('.scroll-button');
-    const navLinks = document.getElementById('nav-links');
-
-    scrollButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            // Close mobile nav on link click
-            if (navLinks) navLinks.classList.remove('open');
-        });
-    });
-
-    // Active nav highlighting via IntersectionObserver
-    const navButtons = document.querySelectorAll('.scroll-button[data-target]');
-    const sectionIds = ['a1', 'a3', 'a4', 'a5', 'a6'];
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navButtons.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.target === entry.target.id);
-                });
-            }
-        });
-    }, { threshold: 0.35 });
-    sectionIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-    });
-
-    newSwiperAuto('.swiper-container-main');
-    newSwiper('.swiper-container1');
-    newSwiper('.swiper-container2');
-    newSwiper('.swiper-container3');
-    newSwiperAuto('.swiper-container-event');
-    newSwiperAuto('.swiper-container-amenities');
-    newSwiperAuto('.swiper-container-cu');
-});
-
+const contactForm = document.getElementById('contact-form');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const messageInput = document.getElementById('message');
 const submitButton = document.getElementById('submit-btn');
+const formStatus = document.getElementById('form-status');
+const formFallback = document.getElementById('form-fallback');
+
+// The button's meaning is held here, not scraped from its text, so it can be
+// re-translated when the visitor switches language mid-flow.
+let submitState = 'idle'; // idle | sending | success | error
 
 function validateName(name) {
-    return name.trim().length > 0;
+    return name.trim().length >= 2;
 }
 
 function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return re.test(String(email).toLowerCase());
+    return re.test(String(email).trim().toLowerCase());
 }
 
 function validatePhone(phone) {
-    const re = /^\d{10,15}$/;
-    return re.test(phone.replace(/\D/g, ''));
+    // Accepts local (0911234567) and international (+251911208751) formats.
+    return /^\d{7,15}$/.test(phone.replace(/\D/g, ''));
 }
 
 function validateMessage(message) {
-    return message.trim().length > 0;
+    return message.trim().length >= 10;
 }
 
 function showError(input, message) {
-    const container = input.closest('.input-container');
-    container.classList.add('error');
-    container.querySelector('.error-message').textContent = message;
+    const field = input.closest('.field');
+    if (!field) return;
+    field.classList.add('error');
+    const slot = field.querySelector('.error-message');
+    if (slot) slot.textContent = message;
+    input.setAttribute('aria-invalid', 'true');
 }
 
 function clearError(input) {
-    const container = input.closest('.input-container');
-    container.classList.remove('error');
-    container.querySelector('.error-message').textContent = '';
+    const field = input.closest('.field');
+    if (!field) return;
+    field.classList.remove('error');
+    const slot = field.querySelector('.error-message');
+    if (slot) slot.textContent = '';
+    input.removeAttribute('aria-invalid');
 }
 
-function clearSubmit() {
-    submitButton.classList.add('animating');
-    setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
-    submitButton.classList.remove('submit-error', 'submitted');
-    submitButton.textContent = t('form_submit');
+function mailtoFallback() {
+    const subject = 'Website enquiry';
+    const lines = [
+        nameInput && nameInput.value ? 'Name: ' + nameInput.value : '',
+        phoneInput && phoneInput.value ? 'Phone: ' + phoneInput.value : '',
+        emailInput && emailInput.value ? 'Email: ' + emailInput.value : '',
+        '',
+        messageInput ? messageInput.value : ''
+    ].filter(Boolean);
+    return 'mailto:' + FRONT_DESK_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
 }
 
-submitButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    let isValid = true;
+// Renders the button + status area from `submitState`, in the current language.
+function renderSubmitState() {
+    if (!submitButton) return;
 
-    if (!validateName(nameInput.value)) {
-        showError(nameInput, t('err_name'));
-        isValid = false;
-    } else {
-        clearError(nameInput);
+    submitButton.classList.toggle('is-success', submitState === 'success');
+    submitButton.classList.remove('is-error');
+    submitButton.disabled = submitState === 'sending';
+
+    // The outcome is reported once, in the status line below the button.
+    // The button only ever says what it does.
+    if (submitState === 'sending') submitButton.textContent = t('form_sending');
+    else submitButton.textContent = t('form_submit');
+
+    if (formStatus) {
+        formStatus.textContent = submitState === 'error' ? t('err_send_failed')
+            : submitState === 'success' ? t('success_contact')
+            : '';
+        formStatus.classList.toggle('is-error', submitState === 'error');
+        formStatus.classList.toggle('is-success', submitState === 'success');
     }
 
-    if (!validateEmail(emailInput.value)) {
-        showError(emailInput, t('err_email'));
-        isValid = false;
-    } else {
-        clearError(emailInput);
+    if (formFallback) {
+        // On failure, hand the visitor a phone number and a pre-filled email
+        // so the enquiry is not simply lost. Labels are translated by the
+        // data-i18n spans; only the hrefs are built here, so the <bdi>-wrapped
+        // number is never replaced by textContent.
+        formFallback.hidden = submitState !== 'error';
+        const call = formFallback.querySelector('[data-fallback="call"]');
+        const mail = formFallback.querySelector('[data-fallback="email"]');
+        if (call) call.href = 'tel:' + FRONT_DESK_TEL;
+        if (mail) mail.href = mailtoFallback();
     }
+}
 
-    if (!validatePhone(phoneInput.value)) {
-        showError(phoneInput, t('err_phone'));
-        isValid = false;
-    } else {
-        clearError(phoneInput);
-    }
+function setSubmitState(state) {
+    submitState = state;
+    renderSubmitState();
+}
 
-    if (!validateMessage(messageInput.value)) {
-        showError(messageInput, t('err_message'));
-        isValid = false;
-    } else {
-        clearError(messageInput);
-    }
+if (contactForm && submitButton) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    if (isValid) {
+        const checks = [
+            [nameInput, validateName(nameInput.value),
+                nameInput.value.trim() ? 'err_name_short' : 'err_name'],
+            [emailInput, validateEmail(emailInput.value), 'err_email'],
+            [phoneInput, validatePhone(phoneInput.value), 'err_phone'],
+            [messageInput, validateMessage(messageInput.value),
+                messageInput.value.trim() ? 'err_message_short' : 'err_message']
+        ];
+
+        let isValid = true;
+        let firstInvalid = null;
+        checks.forEach(([input, ok, errKey]) => {
+            if (ok) {
+                clearError(input);
+            } else {
+                showError(input, t(errKey));
+                isValid = false;
+                if (!firstInvalid) firstInvalid = input;
+            }
+        });
+
+        if (!isValid) {
+            track('form_invalid', { form: 'contact' });
+            if (firstInvalid) firstInvalid.focus();
+            return;
+        }
+
         const postData = {
-            name: nameInput.value,
-            email: emailInput.value,
-            phoneNumber: phoneInput.value,
-            message: messageInput.value
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            phoneNumber: phoneInput.value.trim(),
+            message: messageInput.value.trim()
         };
+
+        setSubmitState('sending');
+        track('form_submit', { form: 'contact' });
 
         fetch(`${API_BASE}/api/contact`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData)
         })
-        .then(response => response.json())
-        .then(data => {
-            submitButton.textContent = t('success_contact');
-            submitButton.classList.add('submitted', 'animating');
-            setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
-        })
-        .catch(error => {
-            submitButton.textContent = t('err_try_again');
-            submitButton.classList.add('submit-error', 'animating');
-            setTimeout(() => { submitButton.classList.remove('animating'); }, 1000);
-        });
-    }
-});
-
-[nameInput, emailInput, phoneInput, messageInput].forEach(input => {
-    input.addEventListener('click', function() {
-        clearError(input);
-        clearSubmit();
+            .then(response => {
+                // An HTTP error is a failure, not a success with an error body.
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.json();
+            })
+            .then(() => {
+                setSubmitState('success');
+                contactForm.reset();
+                track('form_success', { form: 'contact' });
+            })
+            .catch(error => {
+                setSubmitState('error');
+                track('form_failure', {
+                    form: 'contact',
+                    reason: String((error && error.message) || error).slice(0, 120)
+                });
+            });
     });
-});
+
+    [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
+        if (!input) return;
+        input.addEventListener('input', function () {
+            clearError(input);
+            if (submitState === 'success' || submitState === 'error') setSubmitState('idle');
+        });
+    });
+
+    renderSubmitState();
+}
+
+// Re-render the button and status in the newly chosen language.
+document.addEventListener('turaco:langchange', renderSubmitState);

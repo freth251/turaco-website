@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Turaco Addis — Standard Room, mobile</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#1F2A22;background:#F6F1E8}
+a{color:#1E4D3A}a:hover{color:#123326}
+</style>
+</helmet>
+<div style="width: 390px; height: 2160px; background: #F6F1E8; display: flex; flex-direction: column; overflow: hidden">
+
+<header style="height: 72px; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E3DACB">
+<a href="home-mobile.dc.html" aria-label="Back to home" style="width: 44px; height: 44px; border: 1px solid #CFC4B1; border-radius: 22px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<img src="../images/logo.jpg" alt="Turaco Addis Hotel" style="height: 48px; width: 73px; object-fit: contain; mix-blend-mode: multiply">
+<button aria-label="Open menu" style="width: 44px; height: 44px; border: 0; background: #1F2A22; border-radius: 22px; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="2" stroke-linecap="round"><path d="M4 8h16"></path><path d="M4 16h16"></path></svg></button>
+</header>
+
+<section style="height: 380px; box-sizing: border-box; padding: 20px 20px 0; display: flex; flex-direction: column; gap: 8px">
+<div style="position: relative">
+<img src="../images/single-room.jpg" alt="Standard room bed" style="width: 350px; height: 260px; object-fit: cover; border-radius: 20px; display: block">
+<div style="position: absolute; right: 12px; bottom: 12px; background: #F6F1E8; border-radius: 14px; padding: 6px 12px; font-size: 13px; font-weight: 600">1 / 4</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<img src="../images/single-room1.jpg" alt="Standard room alternate view" style="width: 100%; height: 80px; object-fit: cover; border-radius: 10px">
+<img src="../images/lobby1.jpg" alt="Hotel lobby" style="width: 100%; height: 80px; object-fit: cover; border-radius: 10px">
+<img src="../images/front3.jpg" alt="Hotel exterior" style="width: 100%; height: 80px; object-fit: cover; border-radius: 10px">
+</div>
+</section>
+
+<section style="height: 820px; box-sizing: border-box; padding: 32px 20px 0; display: flex; flex-direction: column; gap: 20px">
+<div style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E4D3A">Best for solo travelers</div>
+<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 44px; line-height: 1; letter-spacing: -0.02em">Standard Room</h1>
+<div style="display: flex; gap: 8px; font-size: 14px; font-weight: 600">
+<span style="padding: 7px 12px; border: 1px solid #CFC4B1; border-radius: 16px">2 guests</span>
+<span style="padding: 7px 12px; border: 1px solid #CFC4B1; border-radius: 16px">1 bed</span>
+<span style="padding: 7px 12px; border: 1px solid #CFC4B1; border-radius: 16px">1 bath</span>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4E574F">A cozy bed with premium linens, a work desk and a private balcony with scenic views.</p>
+<h2 style="margin: 8px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 24px">In the room</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+<sc-for list="{{features}}" as="f" hint-placeholder-count="9">
+<li style="display: flex; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #E3DACB; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>{{f}}</li>
+</sc-for>
+</ul>
+</section>
+
+<section style="height: 400px; box-sizing: border-box; padding: 0 20px">
+<div style="height: 360px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E3DACB; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-family: Fraunces, Georgia, serif; font-size: 36px; font-weight: 500">3,000 <span style="font-family: Manrope, sans-serif; font-size: 15px; color: #4E574F">Birr / night</span></div>
+<a href="tel:+251911208751" style="height: 56px; display: flex; align-items: center; justify-content: center; background: {{accent}}; color: #FFFFFF; border-radius: 28px; font-weight: 600; font-size: 16px; text-decoration: none">Call to book</a>
+<a href="mailto:frontdesk@turacoaddis.com?subject=Standard%20Room%20booking" style="height: 56px; display: flex; align-items: center; justify-content: center; border: 1px solid #1F2A22; color: #1F2A22; border-radius: 28px; font-weight: 600; font-size: 16px; text-decoration: none">Email the front desk</a>
+<div style="font-size: 14px; line-height: 1.55; color: #4E574F">Tell us your dates and number of guests — our team will confirm your booking by phone.</div>
+</div>
+</section>
+
+<section style="height: 340px; box-sizing: border-box; padding: 8px 20px 40px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 28px">Other rooms</h2>
+<a href="#" style="display: flex; gap: 16px; align-items: center; background: #FFFFFF; border: 1px solid #E3DACB; border-radius: 18px; padding: 10px; text-decoration: none; color: #1F2A22">
+<img src="../images/deluxe-room1.jpg" alt="Deluxe Suite" style="width: 104px; height: 96px; object-fit: cover; border-radius: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-family: Fraunces, Georgia, serif; font-size: 22px">Deluxe Suite</div><div style="font-size: 14px; color: #4E574F">4,200 Birr / night</div></div>
+</a>
+<a href="#" style="display: flex; gap: 16px; align-items: center; background: #FFFFFF; border: 1px solid #E3DACB; border-radius: 18px; padding: 10px; text-decoration: none; color: #1F2A22">
+<img src="../images/double-room1.jpg" alt="Double Bed room" style="width: 104px; height: 96px; object-fit: cover; border-radius: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-family: Fraunces, Georgia, serif; font-size: 22px">Double Bed</div><div style="font-size: 14px; color: #4E574F">4,500 Birr / night</div></div>
+</a>
+</section>
+
+<footer style="height: 148px; box-sizing: border-box; padding: 28px 20px; background: #1F2A22; color: #D9D3C7; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: Fraunces, Georgia, serif; font-size: 22px; color: #F6F1E8">Turaco Addis Hotel</div>
+<div style="display: flex; gap: 16px; font-size: 14px"><a href="https://www.instagram.com/turacoaddishotel" style="color: #D9D3C7">Instagram</a><a href="https://www.facebook.com/profile.php?id=61564141656155" style="color: #D9D3C7">Facebook</a></div>
+<div style="font-size: 13px">© 2026 Turaco Addis</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#A63A24","options":["#A63A24","#1E4D3A","#8A5A12"]},"$preview":{"width":390,"height":2160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#A63A24',
+      features: [
+        'Large bed with premium linens',
+        'Desk and ergonomic chair',
+        'Private balcony with scenic views',
+        'Free high-speed Wi-Fi',
+        'Mini-fridge and coffee/tea maker',
+        'Ensuite bathroom with luxury toiletries',
+        'Air conditioning, adjustable lighting',
+        'In-room safe, key card access',
+        'Daily housekeeping'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

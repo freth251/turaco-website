@@ -1,294 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Turaco Addis Hotel — affordable luxury in the heart of Addis Ababa. Book standard rooms, deluxe suites, and double beds. Event hall for up to 200 guests.">
-    <title>Turaco Addis</title>
-    <link rel="stylesheet" href="style.css?v=8">
+    <meta name="description" content="Affordable luxury in the heart of Addis Ababa. Standard rooms, deluxe suites and double beds from 3000 Birr, plus an event hall for up to 200 guests.">
+    <title>Turaco Addis Hotel — Affordable Luxury Hotel in Addis Ababa</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon-32.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="canonical" href="https://turacoaddis.com/">
+    <link rel="alternate" hreflang="en" href="https://turacoaddis.com/">
+    <link rel="alternate" hreflang="am" href="https://turacoaddis.com/">
+    <link rel="alternate" hreflang="ar" href="https://turacoaddis.com/">
+    <link rel="alternate" hreflang="x-default" href="https://turacoaddis.com/">
+    <meta name="theme-color" content="#1F2A22">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Facebook, WhatsApp, Telegram link previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Turaco Addis Hotel">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="am_ET">
+    <meta property="og:locale:alternate" content="ar_AR">
+    <meta property="og:url" content="https://turacoaddis.com/">
+    <meta property="og:title" content="Turaco Addis Hotel — Affordable Luxury Hotel in Addis Ababa">
+    <meta property="og:description" content="Affordable luxury in the heart of Addis Ababa. Standard rooms, deluxe suites and double beds from 3000 Birr, plus an event hall for up to 200 guests.">
+    <meta property="og:image" content="https://turacoaddis.com/images/front3.jpg">
+    <meta property="og:image:alt" content="Turaco Addis Hotel, Addis Ababa">
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Turaco Addis Hotel — Affordable Luxury Hotel in Addis Ababa">
+    <meta name="twitter:description" content="Affordable luxury in the heart of Addis Ababa. Standard rooms, deluxe suites and double beds from 3000 Birr, plus an event hall for up to 200 guests.">
+    <meta name="twitter:image" content="https://turacoaddis.com/images/front3.jpg">
+
+    <!-- TODO: add the street address (streetAddress) to `address` below when available. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "@id": "https://turacoaddis.com/#hotel",
+      "name": "Turaco Addis Hotel",
+      "url": "https://turacoaddis.com/",
+      "telephone": "+251911208751",
+      "email": "amentamerat@gmail.com",
+      "image": [
+        "https://turacoaddis.com/images/front3.jpg",
+        "https://turacoaddis.com/images/lobby1.jpg",
+        "https://turacoaddis.com/images/deluxe-room1.jpg"
+      ],
+      "description": "Affordable luxury in the heart of Addis Ababa. Standard rooms, deluxe suites, and double beds, plus an event hall for up to 200 guests.",
+      "priceRange": "3000-4500 ETB",
+      "currenciesAccepted": "ETB",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Addis Ababa",
+        "addressCountry": "ET"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 8.9956785,
+        "longitude": 38.7654357
+      },
+      "hasMap": "https://g.co/kgs/om6qK2E",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61564141656155",
+        "https://www.instagram.com/turacoaddishotel"
+      ],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Bar and Restaurant", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Flat screen TV with satellite channels", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Event hall for up to 200 guests", "value": true }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "name": "Standard Room", "price": "3000", "priceCurrency": "ETB", "url": "https://turacoaddis.com/rooms/standard/" },
+        { "@type": "Offer", "name": "Deluxe Suite", "price": "4200", "priceCurrency": "ETB", "url": "https://turacoaddis.com/rooms/deluxe-suite/" },
+        { "@type": "Offer", "name": "Double Bed", "price": "4500", "priceCurrency": "ETB", "url": "https://turacoaddis.com/rooms/double/" }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
-    <div class="heading">
-        <div class="logo">
-            <img src="images/logo.jpg" alt="Turaco Addis Hotel Logo">
-        </div>
-        <div class="sections">
-            <nav>
-                <div class="nav-links" id="nav-links">
-                    <button class="nav-close" id="nav-close" aria-label="Close menu">&times;</button>
-                    <button class="scroll-button active" data-target="a1" data-i18n="nav_home">Home</button>
-                    <button class="scroll-button" data-target="a3" data-i18n="nav_rooms">Rooms</button>
-                    <button class="scroll-button" data-target="a4" data-i18n="nav_events">Events</button>
-                    <button class="scroll-button" data-target="a5" data-i18n="nav_amenities">Amenities</button>
-                    <button class="scroll-button" data-target="a6" data-i18n="nav_contact">Contact Us</button>
+    <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to content</a>
+    <div class="page">
+    <header class="site-header">
+        <a class="site-header__logo" href="index.html">
+            <img src="images/logo-200.jpg" alt="Turaco Addis Hotel" width="97" height="64">
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <button class="nav-close" id="nav-close" type="button" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A22" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
+            <a href="index.html#rooms" data-i18n="nav_rooms">Rooms</a>
+            <a href="index.html#dining" data-i18n="nav_dining">Restaurant &amp; Lounge</a>
+            <a href="index.html#events" data-i18n="nav_events">Events</a>
+            <a href="index.html#amenities" data-i18n="nav_amenities">Amenities</a>
+            <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+            <a class="btn btn--primary nav-cta" href="#rooms" data-i18n="header_book">Book a room</a>
+            <div class="lang-pills lang-pills--menu" role="group" aria-label="Language">
+                <button class="lang-pill" type="button" data-lang="en" aria-pressed="true">EN</button>
+                <button class="lang-pill" type="button" data-lang="am" aria-pressed="false">&#4768;&#4635;</button>
+                <button class="lang-pill" type="button" data-lang="ar" aria-pressed="false">&#1593;&#1585;&#1576;&#1610;</button>
+            </div>
+        </nav>
+        <div class="header-actions">
+            <div class="lang-switch">
+                <button class="lang-current" id="lang-current" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-pills">EN</button>
+                <div class="lang-pills" id="lang-pills" role="group" aria-label="Language">
+                <button class="lang-pill" type="button" data-lang="en" aria-pressed="true">EN</button>
+                <button class="lang-pill" type="button" data-lang="am" aria-pressed="false">&#4768;&#4635;</button>
+                <button class="lang-pill" type="button" data-lang="ar" aria-pressed="false">&#1593;&#1585;&#1576;&#1610;</button>
                 </div>
-                <select class="lang-select" id="lang-select">
-                    <option value="en">🇺🇸 EN</option>
-                    <option value="am">🇪🇹 AM</option>
-                    <option value="ar">🇸🇦 AR</option>
-                </select>
-                <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </nav>
+            </div>
+            <a class="btn btn--md btn--primary" href="#rooms" data-i18n="header_book">Book a room</a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></button>
         </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <section class="section hero">
+            <div class="hero__copy">
+                <div class="eyebrow" data-i18n="hero_eyebrow">Hotel &middot; Central Addis Ababa</div>
+                <h1 data-i18n="hero_title">Affordable luxury in the heart of the city.</h1>
+                <p class="hero__lede" data-i18n="hero_lede">Elegant rooms, a lively lounge and an event hall for 200 &mdash; for business and leisure travelers, at a price that won't break your budget.</p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="#contact" data-i18n="hero_cta_book">Book your stay</a>
+                    <a class="btn btn--outline hero__cta-rooms" href="#rooms" data-i18n="hero_cta_rooms">See rooms &amp; rates</a>
+                    <a class="btn btn--outline hero__cta-call" href="tel:+251911208751" data-i18n="hero_cta_call">Call front desk</a>
+                </div>
+            </div>
+            <div class="hero__media">
+                <picture>
+                    <source type="image/webp" srcset="images/r/front3-480.webp 480w, images/r/front3-683.webp 683w" sizes="(max-width: 900px) 100vw, 42vw">
+                    <img src="images/front3.jpg" alt="Turaco Addis Hotel exterior" width="683" height="1024" fetchpriority="high" srcset="images/r/front3-480.jpg 480w, images/r/front3-683.jpg 683w" sizes="(max-width: 900px) 100vw, 42vw">
+                </picture>
+                <div class="price-tag">
+                    <div class="price-tag__label" data-i18n="price_from">Rooms from</div>
+                    <div class="price-tag__value">3,000 <span data-i18n="price_unit">Birr / night</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section welcome">
+            <picture>
+                    <source type="image/webp" srcset="images/r/lobby1-480.webp 480w, images/r/lobby1-800.webp 800w, images/r/lobby1-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 45vw">
+                    <img class="welcome__media" src="images/lobby1.jpg" alt="Turaco Addis Hotel lobby" loading="lazy" width="1280" height="853" srcset="images/r/lobby1-480.jpg 480w, images/r/lobby1-800.jpg 800w, images/r/lobby1-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 45vw">
+                </picture>
+            <div class="welcome__copy">
+                <div class="eyebrow" data-i18n="welcome_eyebrow">Welcome</div>
+                <h2 data-i18n="welcome_title">Your home away from home in Addis Ababa.</h2>
+                <p data-i18n="welcome_text">Our elegantly designed rooms blend comfort and calm, tailored for business and leisure alike. Enjoy attentive service and easy access to the city's cultural and commercial hubs.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat__num">3</div>
+                        <div class="stat__label" data-i18n="stat_rooms">room types</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__num">200</div>
+                        <div class="stat__label" data-i18n="stat_hall">guest event hall</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__num" data-i18n="stat_free_num">Free</div>
+                        <div class="stat__label" data-i18n="stat_free">Wi-Fi &amp; parking</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section rooms" id="rooms">
+            <div class="section-head">
+                <div class="section-head__title">
+                    <div class="eyebrow" data-i18n="rooms_eyebrow">Rooms &amp; rates</div>
+                    <h2 data-i18n="rooms_title">Choose your room</h2>
+                </div>
+                <p class="section-head__note" data-i18n="rooms_note">Every room includes premium linens, free Wi-Fi and a flat-screen TV with satellite channels.</p>
+            </div>
+            <div class="room-grid">
+            <article class="room-card">
+                <picture>
+                    <source type="image/webp" srcset="images/r/single-room-480.webp 480w, images/r/single-room-800.webp 800w, images/r/single-room-1024.webp 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                    <img class="room-card__img" src="images/single-room.jpg" alt="Standard Room" loading="lazy" width="1024" height="683" srcset="images/r/single-room-480.jpg 480w, images/r/single-room-800.jpg 800w, images/r/single-room-1024.jpg 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                </picture>
+                <div class="room-card__body">
+                    <div class="room-card__tag" data-i18n="room_standard_tag">Best for solo travelers</div>
+                    <h3 data-i18n="room_standard_name">Standard Room</h3>
+                    <p class="room-card__desc" data-i18n="room_standard_desc">A cozy bed with premium linens, free Wi-Fi, flat-screen TV and modern amenities.</p>
+                    <div class="room-card__foot">
+                        <div class="price">3,000 <span class="price__unit" data-i18n="price_unit">Birr / night</span></div>
+                        <a class="btn btn--sm btn--outline" href="rooms/standard/index.html#book" data-i18n="btn_view_room">View room</a>
+                    </div>
+                </div>
+            </article>
+            <article class="room-card">
+                <picture>
+                    <source type="image/webp" srcset="images/r/deluxe-room1-480.webp 480w, images/r/deluxe-room1-800.webp 800w, images/r/deluxe-room1-1024.webp 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                    <img class="room-card__img" src="images/deluxe-room1.jpg" alt="Deluxe Suite" loading="lazy" width="1024" height="683" srcset="images/r/deluxe-room1-480.jpg 480w, images/r/deluxe-room1-800.jpg 800w, images/r/deluxe-room1-1024.jpg 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                </picture>
+                <div class="room-card__body">
+                    <div class="room-card__tag" data-i18n="room_deluxe_tag">Room to work and relax</div>
+                    <h3 data-i18n="room_deluxe_name">Deluxe Suite</h3>
+                    <p class="room-card__desc" data-i18n="room_deluxe_desc">A spacious living area, premium bedding and modern amenities for longer stays.</p>
+                    <div class="room-card__foot">
+                        <div class="price">4,200 <span class="price__unit" data-i18n="price_unit">Birr / night</span></div>
+                        <a class="btn btn--sm btn--outline" href="rooms/deluxe-suite/index.html#book" data-i18n="btn_view_room">View room</a>
+                    </div>
+                </div>
+            </article>
+            <article class="room-card">
+                <picture>
+                    <source type="image/webp" srcset="images/r/double-room1-480.webp 480w, images/r/double-room1-800.webp 800w, images/r/double-room1-1024.webp 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                    <img class="room-card__img" src="images/double-room1.jpg" alt="Double Bed" loading="lazy" width="1024" height="683" srcset="images/r/double-room1-480.jpg 480w, images/r/double-room1-800.jpg 800w, images/r/double-room1-1024.jpg 1024w" sizes="(max-width: 900px) 100vw, 33vw">
+                </picture>
+                <div class="room-card__body">
+                    <div class="room-card__tag" data-i18n="room_double_tag">For friends and family</div>
+                    <h3 data-i18n="room_double_name">Double Bed</h3>
+                    <p class="room-card__desc" data-i18n="room_double_desc">Two large beds with premium linens &mdash; ideal for traveling together.</p>
+                    <div class="room-card__foot">
+                        <div class="price">4,500 <span class="price__unit" data-i18n="price_unit">Birr / night</span></div>
+                        <a class="btn btn--sm btn--outline" href="rooms/double/index.html#book" data-i18n="btn_view_room">View room</a>
+                    </div>
+                </div>
+            </article>
+            </div>
+        </section>
+
+        <section class="section dining" id="dining">
+            <div class="dining__main">
+                <picture>
+                    <source type="image/webp" srcset="images/r/bar1-480.webp 480w, images/r/bar1-800.webp 800w, images/r/bar1-1080.webp 1080w" sizes="(max-width: 900px) 100vw, 57vw">
+                    <img src="images/bar1.jpg" alt="Turaco Addis Lounge bar" loading="lazy" width="1080" height="720" srcset="images/r/bar1-480.jpg 480w, images/r/bar1-800.jpg 800w, images/r/bar1-1080.jpg 1080w" sizes="(max-width: 900px) 100vw, 57vw">
+                </picture>
+            </div>
+            <div class="dining__side">
+                <picture>
+                    <source type="image/webp" srcset="images/r/restaurant4-480.webp 480w, images/r/restaurant4-800.webp 800w, images/r/restaurant4-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 40vw">
+                    <img src="images/restaurant4.jpg" alt="Hotel dining area" loading="lazy" width="1280" height="853" srcset="images/r/restaurant4-480.jpg 480w, images/r/restaurant4-800.jpg 800w, images/r/restaurant4-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 40vw">
+                </picture>
+                <div class="dining__copy">
+                    <div class="eyebrow" data-i18n="dining_eyebrow">Restaurant &amp; Lounge</div>
+                    <h2 data-i18n="dining_title">Dine in, then unwind at the Turaco Addis Lounge.</h2>
+                    <!-- TODO (owner): replace with real copy once the hotel supplies the cuisine
+                         description and the lounge's opening hours. The sentence below is a neutral
+                         stand-in so no bracketed placeholder is ever shown to visitors.
+                         Edit the `dining_text` key in translations.js (EN + AM + AR). -->
+                    <p data-i18n="dining_text">The hotel restaurant and the Turaco Addis Lounge are open to guests and visitors alike. Call the front desk for the current menu and opening hours.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="events" id="events">
+            <div class="section events__inner">
+                <div class="events__copy">
+                    <div class="eyebrow" data-i18n="events_eyebrow">Events &amp; meetings</div>
+                    <h2 data-i18n="events_title">A hall for up to 200 guests.</h2>
+                    <p data-i18n="events_text">Weddings, large gatherings and meetings &mdash; with elegant design, modern audiovisual equipment, custom seating and a team that handles every detail.</p>
+                    <div>
+                        <a class="btn btn--light" href="#contact" data-i18n="events_cta">Plan an event</a>
+                    </div>
+                </div>
+                <!-- Illustration, not a photograph. Swap in a real event hall photo when one exists. -->
+                <div class="events__media">
+                    <img src="images/event-hall.svg" alt="Illustration of the event hall set for a banquet with round tables and seated guests" width="1200" height="900">
+                </div>
+            </div>
+        </section>
+
+        <section class="section amenities" id="amenities">
+            <div class="section-head__title">
+                <div class="eyebrow" data-i18n="amenities_eyebrow">Amenities</div>
+                <h2 data-i18n="amenities_title">Everything you need</h2>
+            </div>
+            <div class="amenity-grid">
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="0.8"/></svg>
+                <div class="amenity__label" data-i18n="amenity_wifi">Free Wi-Fi</div>
+            </div>
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                <div class="amenity__label" data-i18n="amenity_location">Central location</div>
+            </div>
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 19l6-9 4 5 3-4 7 8z"/><circle cx="17" cy="6" r="2"/></svg>
+                <div class="amenity__label" data-i18n="amenity_views">City views</div>
+            </div>
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9.5 17V7h3.5a3 3 0 0 1 0 6H9.5"/></svg>
+                <div class="amenity__label" data-i18n="amenity_parking">Parking</div>
+            </div>
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-6 8z"/><path d="M12 11v9"/><path d="M8 20h8"/></svg>
+                <div class="amenity__label" data-i18n="amenity_bar">Bar &amp; restaurant</div>
+            </div>
+            <div class="amenity">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg>
+                <div class="amenity__label" data-i18n="amenity_tv">Satellite TV</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="section contact" id="contact">
+            <div class="contact__card">
+                <div class="contact__intro">
+                    <div class="eyebrow" data-i18n="contact_eyebrow">Contact</div>
+                    <h2 data-i18n="contact_title">We'd love to host you.</h2>
+                    <p data-i18n="contact_text">Questions about rooms, events or group rates? Our front desk replies quickly.</p>
+                </div>
+                <div class="contact__details">
+                    <a class="contact__phone" href="tel:+251911208751"><bdi dir="ltr">+251 91 120 8751</bdi></a>
+                    <a class="contact__email" href="mailto:amentamerat@gmail.com"><bdi dir="ltr">amentamerat@gmail.com</bdi></a>
+                    <div class="contact__social">
+                        <a href="https://www.instagram.com/turacoaddishotel?igsh=MTllaGI1NGZ4cXF5dw==" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=61564141656155&amp;mibextid=ZbWKwL" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://g.co/kgs/om6qK2E" target="_blank" rel="noopener">Google</a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="field-row">
+                    <label class="field" for="name">
+                        <span data-i18n="form_name">Name</span>
+                        <input type="text" id="name" name="name" autocomplete="name" dir="auto">
+                        <span class="error-message" id="name-error"></span>
+                    </label>
+                    <label class="field" for="phone">
+                        <span data-i18n="form_phone">Phone</span>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" dir="ltr" inputmode="tel">
+                        <span class="error-message" id="phone-error"></span>
+                    </label>
+                </div>
+                <label class="field" for="email">
+                    <span data-i18n="form_email">Email</span>
+                    <input type="email" id="email" name="email" autocomplete="email" dir="ltr" inputmode="email">
+                    <span class="error-message" id="email-error"></span>
+                </label>
+                <label class="field" for="message">
+                    <span data-i18n="form_message">Message</span>
+                    <textarea id="message" name="message" rows="6" dir="auto"></textarea>
+                    <span class="error-message" id="message-error"></span>
+                </label>
+                <button class="btn btn--primary" type="submit" id="submit-btn" data-i18n="form_submit">Send message</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                <div class="form-fallback" id="form-fallback" hidden>
+                    <a class="btn btn--outline" data-fallback="call" href="tel:+251911208751"><span data-i18n="btn_call">Call</span><bdi dir="ltr">+251&nbsp;91&nbsp;120&nbsp;8751</bdi></a>
+                    <a class="btn btn--outline" data-fallback="email" href="mailto:amentamerat@gmail.com" data-i18n="btn_email_desk">Email the front desk</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__brand">
+            <div class="site-footer__name">Turaco Addis Hotel</div>
+            <div class="site-footer__tagline" data-i18n="footer_tagline">Affordable luxury in the city's heart &middot; Addis Ababa, Ethiopia</div>
+        </div>
+        <div class="site-footer__links">
+            <a href="#rooms" data-i18n="nav_rooms">Rooms</a>
+            <a href="#dining" data-i18n="nav_dining">Restaurant &amp; Lounge</a>
+            <a href="#events" data-i18n="nav_events">Events</a>
+            <a href="#amenities" data-i18n="nav_amenities">Amenities</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </div>
+        <div class="site-footer__copy" data-i18n="footer_copy">&copy; 2026 Turaco Addis. All Rights Reserved.</div>
+    </footer>
     </div>
 
-    <div class="a1" id="a1">
-        <div class="text-area">
-            <div class="main-title">
-                <h1 data-i18n="hero_title">Turaco Addis Hotel</h1>
-            </div>
-            <div class="subheader">
-                <h2 data-i18n="hero_subtitle">Affordable Luxury in the City's Heart</h2>
-            </div>
-
-            <div class="text">
-                <p data-i18n-html="hero_text">
-                    Welcome to Turaco Addis, where <strong>comfort</strong> meets <strong>affordability</strong> in the vibrant center of Addis Ababa.
-                    <br><br>Our elegantly designed rooms offer a blend of luxury and relaxation, tailored for both business and
-                     leisure travelers. Enjoy world-class amenities, exceptional service, and easy access to the city's
-                     cultural and commercial hubs, all at a price that won't break your budget. <br>
-                    <br>Experience the best of Addis Ababa at Turaco Addis, your home away from home.
-                </p>
-            </div>
-        </div>
-
-        <div class="image">
-            <div class="swiper-container-main">
-                <div class="swiper-wrapper">
-                   <div class="swiper-slide"><img src="images/front3.jpg" alt="Hotel exterior front view"></div>
-                   <div class="swiper-slide"><img src="images/front2.jpg" alt="Hotel exterior side view"></div>
-                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Hotel lobby"></div>
-                   <div class="swiper-slide"><img src="images/restaurant5.jpg" alt="Hotel restaurant"></div>
-                   <div class="swiper-slide"><img src="images/restaurant4.jpg" alt="Hotel dining area"></div>
-                   <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall"></div>
-                   <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Deluxe suite bedroom"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="a3" id="a3">
-        <div class="title">
-            <h1 data-i18n="rooms_title">Rooms</h1>
-        </div>
-
-        <div class="showcase">
-            <div class="section1">
-                <div class="image">
-                    <div class="swiper-container1">
-                        <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/single-room.jpg" alt="Standard room" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/single-room1.jpg" alt="Standard room alternate view" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <div class="title">
-                        <h3><a href="./rooms/standard/index.html" class="custom-link" data-i18n="room_standard_name">Standard Room</a></h3>
-                    </div>
-                    <div class="text-area">
-                        <p data-i18n="room_standard_desc">Cozy bed with premium linens, free Wi-Fi, flat-screen TV, and modern amenities—perfect for solo travelers.</p>
-                    </div>
-                    <div class="price-area">
-                        <div class="price">
-                            <h4><a href="./rooms/standard/index.html" class="custom-link" data-i18n="room_standard_price">3000 Birr per night</a></h4>
-                        </div>
-                        <div class="book">
-                            <h4><a href="./rooms/standard/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section2">
-                <div class="image">
-                    <div class="swiper-container2">
-                        <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/deluxe-room1.jpg" alt="Deluxe suite" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/deluxe-room2.jpg" alt="Deluxe suite living area" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/deluxe-room3.jpg" alt="Deluxe suite bathroom" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <div class="title">
-                        <h3><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="room_deluxe_name">Deluxe Suite</a></h3>
-                    </div>
-                    <div class="text-area">
-                        <p data-i18n="room_deluxe_desc">Elegant suite with a spacious living area, premium bedding, and modern amenities—ideal for both work and relaxation.</p>
-                    </div>
-                    <div class="price-area">
-                        <div class="price">
-                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="room_deluxe_price">4200 Birr per night</a></h4>
-                        </div>
-                        <div class="book">
-                            <h4><a href="./rooms/deluxe-suite/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="section3">
-                <div class="image">
-                    <div class="swiper-container3">
-                        <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="images/double-room1.jpg" alt="Double bed room" loading="lazy"></div>
-                           <div class="swiper-slide"><img src="images/hall.jpg" alt="Hotel event hall" loading="lazy"></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <div class="title">
-                        <h3><a href="./rooms/double/index.html" class="custom-link" data-i18n="room_double_name">Double Bed</a></h3>
-                    </div>
-                    <div class="text-area">
-                        <p data-i18n="room_double_desc">Two large beds with premium linens and modern amenities—ideal for friends or family traveling together.</p>
-                    </div>
-                    <div class="price-area">
-                        <div class="price">
-                            <h4><a href="./rooms/double/index.html" class="custom-link" data-i18n="room_double_price">4500 Birr per night</a></h4>
-                        </div>
-                        <div class="book">
-                            <h4><a href="./rooms/double/index.html" class="custom-link" data-i18n="book_now">Book Now</a></h4>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="a4" id="a4">
-        <div class="text-area">
-            <div class="main-title">
-                <h1 data-i18n="events_title">Events</h1>
-            </div>
-            <div class="subtext">
-                <p data-i18n="events_text">Our versatile event hall, capable of accommodating up to 200 people, is ideal for weddings, large gatherings, and meetings. Featuring spacious, elegant design, advanced audiovisual technology, and customizable seating, it combines style and functionality. Our dedicated team ensures a seamless, memorable experience. Contact us to find out more.</p>
-            </div>
-            <div class="contact-button">
-                <button class="scroll-button" data-target="a6" data-i18n="nav_contact">Contact Us</button>
-            </div>
-        </div>
-
-        <div class="image">
-            <div class="swiper-container-event">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="./images/events2.jpg" alt="Hotel event setup" loading="lazy"></div>
-                    <div class="swiper-slide"><img src="./images/events.jpg" alt="Hotel event hall" loading="lazy"></div>
-                    <div class="swiper-slide"><img src="./images/meeting1c.jpg" alt="Meeting room setup" loading="lazy"></div>
-                    <div class="swiper-slide"><img src="./images/restaurant4.jpg" alt="Hotel dining area" loading="lazy"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="a5" id="a5">
-        <div class="text-area">
-            <div class="main-title">
-                <h1 data-i18n="amenities_title">Amenities</h1>
-            </div>
-            <div class="list-amenities">
-                <ul>
-                    <li data-i18n="amenity_wifi">Free Wi-Fi</li>
-                    <li data-i18n="amenity_location">Exceptional Location</li>
-                    <li data-i18n="amenity_views">Beautiful Views</li>
-                    <li data-i18n="amenity_parking">Parking</li>
-                    <li data-i18n="amenity_bar">Bar &amp; Restaurant</li>
-                    <li data-i18n="amenity_tv">Flat Screen TV with satellite channels</li>
-                </ul>
-            </div>
-        </div>
-        <div class="image">
-            <div class="swiper-container-amenities">
-                <div class="swiper-wrapper">
-                   <div class="swiper-slide"><img src="images/bar1.jpg" alt="Hotel bar" loading="lazy"></div>
-                   <div class="swiper-slide"><img src="images/front1.jpg" alt="Hotel exterior" loading="lazy"></div>
-                   <div class="swiper-slide"><img src="images/lobby1.jpg" alt="Hotel lobby" loading="lazy"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="a6" id="a6">
-        <div class="text-area">
-            <div class="main-title">
-                <h1 data-i18n="contact_title">Contact Us</h1>
-            </div>
-            <div class="contact-form">
-                <div class="input-container">
-                    <input type="text" id="name" placeholder=" ">
-                    <label for="name" class="input-label" data-i18n="form_name">NAME</label>
-                    <div class="error-message" id="name-error"></div>
-                </div>
-                <div class="input-container">
-                    <input type="email" id="email" placeholder=" ">
-                    <label for="email" class="input-label" data-i18n="form_email">EMAIL</label>
-                    <div class="error-message" id="email-error"></div>
-                </div>
-                <div class="input-container">
-                    <input type="tel" id="phone" placeholder=" ">
-                    <label for="phone" class="input-label" data-i18n="form_phone">PHONE NUMBER</label>
-                    <div class="error-message" id="phone-error"></div>
-                </div>
-                <div class="input-container">
-                    <textarea name="comments" id="message" cols="20" rows="4" placeholder=" "></textarea>
-                    <label for="message" class="message" data-i18n="form_message">MESSAGE</label>
-                    <div class="error-message" id="message-error"></div>
-                </div>
-                <button class="contact-us-button" id="submit-btn" data-i18n="form_submit">Contact Us</button>
-            </div>
-        </div>
-
-        <div class="image">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15762.976402633172!2d38.7654357!3d8.9956785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b850054356149%3A0xb0a94c955ea14539!2sTuraco%20Addis%20Hotel!5e0!3m2!1sen!2sca!4v1731127432191!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map" title="Turaco Addis Hotel location map"></iframe>
-        </div>
-    </div>
-
-    <div class="footer">
-        <footer>
-            <div class="footer-container">
-              <p data-i18n="footer_follow">Follow us on:</p>
-              <ul class="social-media">
-                <li><a href="https://www.facebook.com/profile.php?id=61564141656155&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://g.co/kgs/om6qK2E" target="_blank"><i class="fab fa-google"></i></a></li>
-                <li><a href="https://www.instagram.com/turacoaddishotel?igsh=MTllaGI1NGZ4cXF5dw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
-              </ul>
-              <p data-i18n="footer_copy">&copy; 2026 Turaco Addis. All Rights Reserved.</p>
-            </div>
-          </footer>
-    </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
-
+    <script src="telemetry.js?v=16"></script>
+    <script src="translations.js?v=16"></script>
+    <script src="script.js?v=16"></script>
 </body>
 </html>
